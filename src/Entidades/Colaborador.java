@@ -10,6 +10,6 @@ public class Colaborador {
     
     private double salarioHora, horasTrabajadas, extrasSencillas, extrasDobles;
     private String nombre, primerApellido, segundoApellido, identificacion, correoElectronico, ocupacion;
-   private String nadafghfg;
+   private String nadafghfjkgl;
     
 }
