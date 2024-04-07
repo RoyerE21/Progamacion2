@@ -13,5 +13,5 @@ public class Colaborador {
 
     private int fhuvb;
     
-    
+    private int hola; 
 }
