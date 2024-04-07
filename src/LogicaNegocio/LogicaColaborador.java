@@ -116,6 +116,10 @@ public class LogicaColaborador {
     public static double getDeduccionesCcssColaborador() {
         return deduccionesCcssColaborador;
     }
+
+    public static double getImpuestosSobreRenta() {
+        return impuestosSobreRenta;
+    }
     
     
     
