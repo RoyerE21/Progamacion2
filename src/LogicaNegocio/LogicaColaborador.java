@@ -9,7 +9,7 @@ public class LogicaColaborador {
      private static double totalSalarioBase;
      private static double totalHorasExtrasDobles;
      private static double totalHorasExtrasNormales;
-     private static double salarioSinDeducciones = 1364000;
+     private static double salarioSinDeducciones =10000000;
      private static double salarioSinDeduccionesDeCcssAlPatrono;
      private static double deduccionesCcssColaborador;
      private static double impuestosSobreRenta;
@@ -74,15 +74,15 @@ public class LogicaColaborador {
           System.out.println(impuestosSobreRenta);
          return impuestosSobreRenta;
     } else if(salarioSinDeducciones > 1363000 && salarioSinDeducciones <2392000){
-         impuestosSobreRenta = (salarioSinDeducciones-1363000) * 0.15; 
+         impuestosSobreRenta = (salarioSinDeducciones-1363000) * 0.15 + 43400; 
           System.out.println(impuestosSobreRenta);
          return impuestosSobreRenta;
     } else if (salarioSinDeducciones > 2392000 && salarioSinDeducciones <4783000){
-         impuestosSobreRenta = (salarioSinDeducciones-2392000) * 0.20;  
+         impuestosSobreRenta = (salarioSinDeducciones-2392000) * 0.20 + 197750;  
           System.out.println(impuestosSobreRenta);
          return impuestosSobreRenta;
     }else if(salarioSinDeducciones > 4783000){
-         impuestosSobreRenta = (salarioSinDeducciones-4783000) * 0.25; 
+         impuestosSobreRenta = (salarioSinDeducciones-4783000) * 0.25 + 675950; 
           System.out.println(impuestosSobreRenta);
          return impuestosSobreRenta;
     }
