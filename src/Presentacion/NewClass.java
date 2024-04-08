@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class NewClass {
 
-    // esta es una clase para pobrar la logica DESPUES LA VOY A ELIMINAR
+    // esta es una clase para pobrar la logica DESPUES LA VOY A ELIMINAR.
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         

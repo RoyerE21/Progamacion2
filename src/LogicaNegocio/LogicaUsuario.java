@@ -25,7 +25,7 @@ public class LogicaUsuario {
 
     }
 
-    //no esta terminado.
+    //no esta terminado..
     
     public void readUsuarios(Usuario objusuario) throws IOException {
 
