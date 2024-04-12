@@ -14,6 +14,7 @@ import java.util.logging.Logger;
  */
 public class NewClass {
 
+    
     // esta es una clase para pobrar la logica DESPUES LA VOY A ELIMINAR.
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
@@ -27,18 +28,27 @@ public class NewClass {
         System.out.println("contraseña");
         objUsuario.setContraseña(teclado.nextLine());
         
+        System.out.println("nombre");
+        objUsuario.setNombre(teclado.nextLine());
         
+        System.out.println("apellido");
+        objUsuario.setPrimerApellido(teclado.nextLine());
+        
+        System.out.println("apellido 2");
+        objUsuario.setSegundoApellido(teclado.nextLine());
+        
+        
+        
+        
+       
         try {
-            objLogicaUsuario.readUsuarios(objUsuario);
-            for (Usuario usuario : objUsuario.getListaUsuarios()) {
-              
-                System.out.println(usuario.getNombreUsuario());
-            }
+            
+            objLogicaUsuario.insertNuevoUsuario(objUsuario);
+            
         } catch (IOException ex) {
-            Logger.getLogger(NewClass.class.getName()).log(Level.SEVERE, null, ex);
+            
+            System.out.println(ex.getMessage()); 
         }
-        
-        
         
         
     }
