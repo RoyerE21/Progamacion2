@@ -7,5 +7,5 @@ package LogicaNegocio;
  */
 public class LogicaEnviarCorreo {
     
-    String hola;
+    String hola, adios;
 }
