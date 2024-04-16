@@ -4,6 +4,8 @@
  */
 package Presentacion;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author regr9
@@ -28,16 +30,17 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        btnRegister = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
+        txtUser = new javax.swing.JTextField();
+        SpaceUser = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
+        Password = new javax.swing.JPasswordField();
+        lblUserIcon = new javax.swing.JLabel();
+        lblPanel = new javax.swing.JLabel();
+        lblSpacelogin = new javax.swing.JLabel();
         imgFrame2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        imgFrame3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,58 +52,79 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         jCheckBox1.setText("Recuerdame");
         jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 480, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Log in");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        btnRegister.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegister.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegister.setText("Crear una Cuenta nueva");
+        btnRegister.setBorder(null);
+        btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegisterMouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 520, 370, 40));
-
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setText("Usuario:");
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                btnRegisterActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 50, 20));
+        jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 560, -1, -1));
 
-        jTextField2.setText(" Ingrese Usuario");
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 380, 40));
+        btnLogin.setBackground(new java.awt.Color(102, 102, 102));
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("Log in");
+        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLoginMouseClicked(evt);
+            }
+        });
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, 370, 40));
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField3.setText("Contraseña:");
-        jTextField3.setBorder(null);
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 380, 40));
+        txtUser.setBackground(new java.awt.Color(255, 255, 255));
+        txtUser.setForeground(new java.awt.Color(0, 0, 0));
+        txtUser.setText("Usuario:");
+        txtUser.setBorder(null);
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 50, 20));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Avatars_ngg.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 80, 160));
+        SpaceUser.setText(" Ingrese Usuario");
+        jPanel1.add(SpaceUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 380, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Card_Header_Grey.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 450, -1));
+        txtPassword.setBackground(new java.awt.Color(255, 255, 255));
+        txtPassword.setForeground(new java.awt.Color(0, 0, 0));
+        txtPassword.setText("Contraseña:");
+        txtPassword.setBorder(null);
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
+        jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 380, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Card_Content.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 450, -1));
+        lblUserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Avatars_ngg.png"))); // NOI18N
+        lblUserIcon.setText("jLabel3");
+        jPanel1.add(lblUserIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 80, 160));
+
+        lblPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Card_Header_Grey.png"))); // NOI18N
+        lblPanel.setText("jLabel1");
+        lblPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(lblPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 450, -1));
+
+        lblSpacelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Card_Content.png"))); // NOI18N
+        lblSpacelogin.setText("jLabel2");
+        lblSpacelogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(lblSpacelogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 450, -1));
 
         imgFrame2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame2.png"))); // NOI18N
         imgFrame2.setText("jLabel5");
         jPanel1.add(imgFrame2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, 930, 590));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame2.png"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 890, -1));
+        imgFrame3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame2.png"))); // NOI18N
+        imgFrame3.setText("jLabel4");
+        jPanel1.add(imgFrame3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 890, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,14 +140,43 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtUserActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
+       String Usuario = "admin";
+       String Contraseña = "1234";
+       
+       String Pass = new String(Password.getPassword());
+       
+       if(txtUser.getText().equals(Usuario) && Pass.equals(Contraseña)){
+           InterfazTomaDatos TM = new InterfazTomaDatos();
+           TM.setVisible(true);
+           dispose();
+         
+       }else{
+           JOptionPane.showMessageDialog(this, "Usuario o Contraseña incorrectos");
+       }
+    }//GEN-LAST:event_btnLoginMouseClicked
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
+        
+        InterfazRegistro newframe = new InterfazRegistro();
+        
+        newframe.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnRegisterMouseClicked
+    
     /**
      * @param args the command line arguments
      */
@@ -160,17 +213,18 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField Password;
+    private javax.swing.JTextField SpaceUser;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnRegister;
     private javax.swing.JLabel imgFrame2;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel imgFrame3;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel lblPanel;
+    private javax.swing.JLabel lblSpacelogin;
+    private javax.swing.JLabel lblUserIcon;
+    private javax.swing.JTextField txtPassword;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
