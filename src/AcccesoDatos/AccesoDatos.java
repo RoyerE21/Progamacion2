@@ -27,14 +27,13 @@ public class AccesoDatos {
     public int obtenerUltimoId(AccesoDatos objAccesoDatos) throws IOException {
         int nuevoId = 0;
 
-        
         BufferedReader objBufferedReader = new BufferedReader(new FileReader(objAccesoDatos.getNombreArchivo()));
         String linea = null;
 
         while ((linea = objBufferedReader.readLine()) != null) {
 
             String[] datos = linea.split(",");
-            if (datos.length >= 6) {
+            if (datos.length >= 4) {
                 int ultimoId = Integer.parseInt(datos[0]);
                 if (ultimoId > nuevoId) {
                     nuevoId = ultimoId;
@@ -49,9 +48,11 @@ public class AccesoDatos {
 
     public void insertar(AccesoDatos objAccesoDatos) throws IOException {
 
-        BufferedWriter objBufferedWriter = new BufferedWriter(new FileWriter(objAccesoDatos.getNombreArchivo(), true));
-        objBufferedWriter.append(linea);
+        BufferedWriter objBufferedWriter = new BufferedWriter(new FileWriter(this.nombreArchivo, true));
+
+        objBufferedWriter.append(this.linea);
         objBufferedWriter.newLine();
+
         objBufferedWriter.close();
 
     }
@@ -64,9 +65,27 @@ public class AccesoDatos {
                 objAccesoDatos.getNombreArchivo()));
 
         while ((lineaArchivo = objBufferedReader.readLine()) != null) {
-            objAccesoDatos.setElementoLista(lineaArchivo);
+            objAccesoDatos.agregarLineaLista(lineaArchivo);
         }
 
+    }
+    
+    public void actualizar(AccesoDatos objAccesoDatos) throws IOException {
+
+        BufferedWriter objBufferedWriter = new BufferedWriter(new FileWriter(objAccesoDatos.nombreArchivo));
+
+        for (String linea : objAccesoDatos.getLista()) {
+            objBufferedWriter.write(linea);
+            objBufferedWriter.newLine();
+
+        }
+
+        objBufferedWriter.close();
+    }
+    
+    public void eliminar(AccesoDatos objAccesoDatos) throws IOException {
+
+        actualizar(objAccesoDatos);
     }
     
     
@@ -76,8 +95,8 @@ public class AccesoDatos {
         return lista;
     }
 
-    public void setElementoLista(String elemento) {
-        this.lista.add(elemento);
+    public void agregarLineaLista(String linea) {
+        this.lista.add(linea);
     }
 
     public void limpiarLista() {
