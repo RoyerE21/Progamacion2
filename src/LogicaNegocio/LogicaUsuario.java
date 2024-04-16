@@ -16,7 +16,7 @@ public class LogicaUsuario {
     public void read(Usuario objUsuario) throws IOException {
 
         AccesoDatos objAccesoDatos = new AccesoDatos();
-        objAccesoDatos.setNombreArchivo("usuarios.txt");
+        objAccesoDatos.setNombreArchivo("archivoUsuariosSistema");
 
         objAccesoDatos.leer(objAccesoDatos);
 
@@ -40,7 +40,7 @@ public class LogicaUsuario {
     public void insert(Usuario objUsuario) throws IOException {
 
         objAccesoDatos = new AccesoDatos();
-        objAccesoDatos.setNombreArchivo("usuarios.txt");
+        objAccesoDatos.setNombreArchivo("archivoUsuariosSistema");
 
         objUsuario.setID(objAccesoDatos.obtenerUltimoId(objAccesoDatos));
 
@@ -61,7 +61,7 @@ public class LogicaUsuario {
     public void update(Usuario objUsuario) throws IOException {
 
         AccesoDatos objAccesoDatos = new AccesoDatos();
-        objAccesoDatos.setNombreArchivo("usuarios.txt");
+        objAccesoDatos.setNombreArchivo("archivoUsuariosSistema");
         objAccesoDatos.leer(objAccesoDatos);
 
         int IdUsuario = objUsuario.getID();
@@ -93,7 +93,7 @@ public class LogicaUsuario {
     public void delete(Usuario objUsuario) throws IOException {
 
         AccesoDatos objAccesoDatos = new AccesoDatos();
-        objAccesoDatos.setNombreArchivo("usuarios.txt");
+        objAccesoDatos.setNombreArchivo("archivoUsuariosSistema");
         objAccesoDatos.leer(objAccesoDatos);
 
         int IdUsuario = objUsuario.getID();
