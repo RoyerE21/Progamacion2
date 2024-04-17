@@ -10,9 +10,18 @@ import java.util.ArrayList;
  * @author regr9
  */
 public class LogicaUsuario {
-
+/**
+ * Instancia de la clase AccesoDatos para poder ejecutar SCRUB
+ */
     private AccesoDatos objAccesoDatos;
+    
+    /**
+     * El metodo read permite leer el archivo texto 
+     * @param objUsuario el metodo read recibe un objeto de un parametro de tipo Usuario
+     * @throws IOException 
+     */
 
+    
     public void read(Usuario objUsuario) throws IOException {
 
         AccesoDatos objAccesoDatos = new AccesoDatos();
@@ -36,6 +45,12 @@ public class LogicaUsuario {
         }
 
     }
+    
+    /**
+     * El metodo insert permite actualizar los usuarios del archivo de texto 
+     * @param objUsuario el metodo read recibe un objeto de un parametro de tipo Usuario
+     * @throws IOException 
+     */
 
     public void insert(Usuario objUsuario) throws IOException {
 
@@ -58,6 +73,11 @@ public class LogicaUsuario {
     }
     
     
+    /**
+     * El metodo update permite actualizar el usuario que se seleccione en el archivo texto 
+     * @param objUsuario el metodo read recibe un objeto de un parametro de tipo Usuario
+     * @throws IOException 
+     */
     public void update(Usuario objUsuario) throws IOException {
 
         AccesoDatos objAccesoDatos = new AccesoDatos();
@@ -90,6 +110,11 @@ public class LogicaUsuario {
     }
     
     
+    /**
+     * El metodo delete permite borrar el usuario que se seleccione en el archivo de texto 
+     * @param objUsuario el metodo read recibe un objeto de un parametro de tipo Usuario
+     * @throws IOException 
+     */
     public void delete(Usuario objUsuario) throws IOException {
 
         AccesoDatos objAccesoDatos = new AccesoDatos();
