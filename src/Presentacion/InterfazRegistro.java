@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Presentacion;
-
+import Entidades.Usuario;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 /**
  *
  * @author regr9
@@ -27,17 +30,12 @@ public class InterfazRegistro extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        lblConPass = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         lblPass = new javax.swing.JLabel();
-        lblMoNo = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         lblApellido = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
@@ -55,53 +53,33 @@ public class InterfazRegistro extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane4.setViewportView(jTextArea4);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Registro de Usuario3.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, 160, -1));
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, -1, 40));
-
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
-
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, 40));
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, -1, 40));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 230, -1, 40));
-
-        lblConPass.setText("Confirmar Contraseña");
-        jPanel1.add(lblConPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 300, -1, -1));
+        jLabel4.setText("Nombre de Usuario");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 140, 30));
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 140, 30));
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 140, 30));
 
         lblPass.setText("Contraseña");
-        jPanel1.add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, -1, -1));
-
-        lblMoNo.setText("Numero de telefono");
-        jPanel1.add(lblMoNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 210, -1, -1));
+        jPanel1.add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
 
         lblEmail.setText("Email");
-        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
+        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, -1, -1));
 
-        lblApellido.setText("Apellido:");
-        jPanel1.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, -1, -1));
+        lblApellido.setText("Apellidos:");
+        jPanel1.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, -1));
 
         lblNombre.setText("Nombre:");
-        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, -1, -1));
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, -1, -1));
 
         txtNombre.setColumns(20);
         txtNombre.setRows(5);
         txtNombre.setText("\n");
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 250, 30));
-        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 140, 210, 30));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 140, 30));
+        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 140, 30));
 
         btnSingup.setText("Registrarse");
         btnSingup.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -114,7 +92,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 btnSingupActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSingup, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 120, 30));
+        jPanel1.add(btnSingup, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 120, 30));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
@@ -125,12 +103,12 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 450, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 470, -1, -1));
 
         imgFont.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/left_Background.png"))); // NOI18N
         imgFont.setText("jLabel1");
         imgFont.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(imgFont, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 650, 600));
+        jPanel1.add(imgFont, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 650, 540));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame2.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -164,8 +142,22 @@ public class InterfazRegistro extends javax.swing.JFrame {
 
     private void btnSingupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSingupActionPerformed
         // TODO add your handling code here:
+         
+        
+            
+        
+        
+        InterfazInicioSesion newframe = new InterfazInicioSesion();
+        
+        newframe.setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_btnSingupActionPerformed
 
+     /**
+     * Botón para validar que los datos del registro esten correctos
+     */
+    
     private void btnSingupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSingupMouseClicked
     InterfazInicioSesion newframe = new InterfazInicioSesion();
         
@@ -215,19 +207,14 @@ public class InterfazRegistro extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblApellido;
-    private javax.swing.JLabel lblConPass;
     private javax.swing.JLabel lblEmail;
-    private javax.swing.JLabel lblMoNo;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPass;
     private javax.swing.JTextField txtApellido;
