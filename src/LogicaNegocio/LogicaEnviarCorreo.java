@@ -14,9 +14,10 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 
+
 /**
  *
- * @author regr9
+ * "@author Grupo #2"
  */
 public class LogicaEnviarCorreo {
     
