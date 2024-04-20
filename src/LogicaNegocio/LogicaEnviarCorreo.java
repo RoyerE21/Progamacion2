@@ -25,7 +25,7 @@ public class LogicaEnviarCorreo {
 /**
  * Clase principal que permite enviar correos electrónicos utilizando la API de JavaMail.
  */    
-public class Main {
+//public class Main {
     // Variables estáticas para almacenar la información del correo electrónico
     private static String emailFrom = "eduardo.dominguez0809@gmail.com";
     // Contraseña del remitente
@@ -79,7 +79,7 @@ public class Main {
             
             
         } catch (MessagingException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
         
         
@@ -99,7 +99,7 @@ public class Main {
             mTransport.close();
             JOptionPane.showMessageDialog(null, "Correo enviado");
         } catch (MessagingException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+              System.out.println(ex);
         }
      
          
@@ -120,5 +120,5 @@ public class Main {
     
 }
 
-}
+//}
 }
