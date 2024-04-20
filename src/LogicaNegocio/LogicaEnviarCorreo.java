@@ -115,7 +115,7 @@ public class Main {
       // Envío del correo electrónico
      sendMail();
    
-    String holi;
+    String holis;
      
     
 }
