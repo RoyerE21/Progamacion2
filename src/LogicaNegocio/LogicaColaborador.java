@@ -4,7 +4,7 @@ import Entidades.Colaborador;
 
 /**
  *
- * "@author Sebastian"
+ * "@author Grupo #2"
  */
 public class LogicaColaborador {
 
