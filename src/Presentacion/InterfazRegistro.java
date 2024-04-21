@@ -3,10 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Presentacion;
+
 import Entidades.Usuario;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author regr9
@@ -14,11 +16,23 @@ import javax.swing.JOptionPane;
 public class InterfazRegistro extends javax.swing.JFrame {
 
     /**
-     * Creates new form InterfazRegistro
+     * Trae el ArrayList de listaUsuarios
      */
-    public InterfazRegistro() {
+    ArrayList<Usuario> listaUsuarios;
+    public String nombreUsuario;
+
+    public InterfazRegistro(ArrayList<Usuario> listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
         initComponents();
     }
+
+    public void agregarUsuarioLista(Usuario usuario) {
+        this.listaUsuarios.add(usuario);
+    }
+
+
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,14 +43,14 @@ public class InterfazRegistro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jplRegister = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        lblPass = new javax.swing.JLabel();
-        lblEmail = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        txtMail = new javax.swing.JTextField();
+        txtUser = new javax.swing.JTextField();
+        txtContrasena = new javax.swing.JTextField();
+        lblContrasena = new javax.swing.JLabel();
+        lblMail = new javax.swing.JLabel();
         lblApellido = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextArea();
@@ -49,37 +63,37 @@ public class InterfazRegistro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jplRegister.setBackground(new java.awt.Color(255, 255, 255));
+        jplRegister.setForeground(new java.awt.Color(255, 255, 255));
+        jplRegister.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Registro de Usuario3.png"))); // NOI18N
         jLabel5.setText("jLabel5");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, 160, -1));
+        jplRegister.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, 160, -1));
 
-        jLabel4.setText("Nombre de Usuario");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 140, 30));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 140, 30));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 140, 30));
+        lblUsuario.setText("Nombre de Usuario");
+        jplRegister.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));
+        jplRegister.add(txtMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 140, 30));
+        jplRegister.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 140, 30));
+        jplRegister.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 140, 30));
 
-        lblPass.setText("Contraseña");
-        jPanel1.add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
+        lblContrasena.setText("Contraseña");
+        jplRegister.add(lblContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
 
-        lblEmail.setText("Email");
-        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, -1, -1));
+        lblMail.setText("Email");
+        jplRegister.add(lblMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, -1, -1));
 
         lblApellido.setText("Apellidos:");
-        jPanel1.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, -1));
+        jplRegister.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, -1));
 
         lblNombre.setText("Nombre:");
-        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, -1, -1));
+        jplRegister.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, -1, -1));
 
         txtNombre.setColumns(20);
         txtNombre.setRows(5);
         txtNombre.setText("\n");
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 140, 30));
-        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 140, 30));
+        jplRegister.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 140, 30));
+        jplRegister.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 140, 30));
 
         btnSingup.setText("Registrarse");
         btnSingup.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -92,7 +106,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 btnSingupActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSingup, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 120, 30));
+        jplRegister.add(btnSingup, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 120, 30));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
@@ -103,66 +117,77 @@ public class InterfazRegistro extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 470, -1, -1));
+        jplRegister.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 470, -1, -1));
 
         imgFont.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/left_Background.png"))); // NOI18N
         imgFont.setText("jLabel1");
         imgFont.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(imgFont, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 650, 540));
+        jplRegister.add(imgFont, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 650, 540));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame2.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 940, -1));
+        jplRegister.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 940, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame2.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 930, -1));
+        jplRegister.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 930, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1330, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jplRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 1330, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jplRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-            InterfazInicioSesion newframe = new InterfazInicioSesion();
-        
+        InterfazInicioSesion newframe = new InterfazInicioSesion();
+
         newframe.setVisible(true);
-        
+
         this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void btnSingupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSingupActionPerformed
         // TODO add your handling code here:
-         
-        
-            
-        
-        
+
+    
+        // Obtener el nombre de usuario ingresado por el usuario desde algún campo de entrada
+        String nombreUsuario = txtUser.getText(); 
+
+        // Crear un nuevo objeto Usuario con la información ingresada
+        Usuario txtUser = new Usuario(nuevoUsuario);
+
+        // Agregar el nuevo usuario a la lista de usuarios
+        agregarlistaUsuarios(nuevoUsuario);
+
+        // Limpiar el campo de entrada después de agregar el usuario
+        txtUser.setText("");
+    
+
+
         InterfazInicioSesion newframe = new InterfazInicioSesion();
-        
+
         newframe.setVisible(true);
-        
+
         this.dispose();
     }//GEN-LAST:event_btnSingupActionPerformed
 
-     /**
+    /**
      * Botón para validar que los datos del registro esten correctos
      */
-    
+
     private void btnSingupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSingupMouseClicked
-    InterfazInicioSesion newframe = new InterfazInicioSesion();
-        
+        InterfazInicioSesion newframe = new InterfazInicioSesion();
+
         newframe.setVisible(true);
-        
+
         this.dispose();
     }//GEN-LAST:event_btnSingupMouseClicked
 
@@ -207,17 +232,17 @@ public class InterfazRegistro extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JPanel jplRegister;
     private javax.swing.JLabel lblApellido;
-    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblContrasena;
+    private javax.swing.JLabel lblMail;
     private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblPass;
+    private javax.swing.JLabel lblUsuario;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtContrasena;
+    private javax.swing.JTextField txtMail;
     private javax.swing.JTextArea txtNombre;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
