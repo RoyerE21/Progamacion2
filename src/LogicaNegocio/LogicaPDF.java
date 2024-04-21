@@ -19,9 +19,9 @@ public class LogicaPDF {
   
     public static void main(String[] args) {
         Document document = new Document();
-        String nombreArchivo = "PDF Salario ";
+        String nombreArchivo = "PDFSalario.pdf";
         try {
-            PdfWriter.getInstance(document, new FileOutputStream(nombreArchivo));
+            PdfWriter.getInstance(document, new FileOutputStream("PDFSalario.pdf"));
             document.open();
             
             // Agrega un párrafo con el texto "Calculo de salario" centrado
