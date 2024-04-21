@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * "@author Grupo #2"
  */
-public class LogicaEnviarCorreo {
+public class LogicaEnviarCorreo extends LogicaPDF{ 
     
   
 /**
@@ -53,7 +53,7 @@ public class LogicaEnviarCorreo {
         // Asunto del correo
         subject = "Comprobante de pago ";
          // Contenido del correo
-        content = "";
+        content = "PDFSalario.pdf";
         // Configuración de las propiedades del servidor SMTP de Gmail
         mProperties.put("mail.smtp.host", "smtp.gmail.com");
         mProperties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
@@ -109,16 +109,7 @@ public class LogicaEnviarCorreo {
      * Método principal para enviar un correo electrónico.
      * @param args Argumentos de la línea de comandos (no se utilizan).
      */
-         public static void main(String[] args) {
-      // Creación del correo electrónico
-     createEmail();  
-      // Envío del correo electrónico
-     sendMail();
-   
-    String holis;
-     
+    
     
 }
 
-//}
-}
