@@ -4,6 +4,11 @@
  */
 package Presentacion;
 
+import Entidades.Usuario;
+import LogicaNegocio.LogicaUsuario;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -107,6 +112,12 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraseñaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -153,68 +164,79 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_lblUsuarioActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-               String Usuario = "admin";
-       String Contraseña = "1234";
-       
-       //String Pass = new String(Password.getPassword());
-       
-       if(txtUsuario.getText().equals(Usuario) && txtContraseña.getText().equals(Contraseña)){
-             JOptionPane.showMessageDialog(null, "Usuario creado");
-           InterfazTomaDatos TM = new InterfazTomaDatos();
-           TM.setVisible(true);
-           this.dispose();
-           
-        
-       
-        TM.setVisible(true);
-        TM.setResizable(false);
-        TM.setLocationRelativeTo(null);
-        
-        
-        
-         
-       }else{
-           JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrectos");
-       }
+
+        LogicaUsuario objLogicaUsuario = new LogicaUsuario();
+        Usuario objUsuario = new Usuario();
+
+        objUsuario.setNombreUsuario(txtUsuario.getText());
+        objUsuario.setContraseña(txtContraseña.getText());
+
+        try {
+
+            if (objLogicaUsuario.validarUsuarioContraseña(objUsuario)) {
+                
+                JOptionPane.showMessageDialog(null, "INGRESANDO A SISTEMA", "INFORMACION DE SISTEMA", JOptionPane.INFORMATION_MESSAGE);
+
+                InterfazTomaDatos TM = new InterfazTomaDatos();
+                TM.setVisible(true);
+                this.dispose();
+
+                TM.setVisible(true);
+                TM.setResizable(false);
+                TM.setLocationRelativeTo(null);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "USUARIO O CONTRASEÑA INCORRECTA", "INFORMACION DE SISTEMA", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+
+        } catch (IOException ex) {
+
+        }
+
     }
+
     /**
      * Logica para el botón log in. Validar si el usuario es correcto
      */
-    
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {                                            
-    // InterfazTomaDatos TM = new InterfazTomaDatos();
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {
+        // InterfazTomaDatos TM = new InterfazTomaDatos();
         //  this.dispose();
-         //  TM.setVisible(true);
-           //this.dispose();
-           
-           InterfazRegistro objInterfazRegistro = new InterfazRegistro();    
+        //  TM.setVisible(true);
+        //this.dispose();
+
+        InterfazRegistro objInterfazRegistro = new InterfazRegistro();
         objInterfazRegistro.setVisible(true);
         objInterfazRegistro.setResizable(false);
         objInterfazRegistro.setLocationRelativeTo(null);
-         
+
 
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-    
+
     }//GEN-LAST:event_btnLoginMouseClicked
-    
-     /**
+
+    /**
      * Logica para el botón log in. Validar si el usuario es correcto
      */
-  /*  
+    /*  
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
  
     }//GEN-LAST:event_btnRegisterActionPerformed
 */
     private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
-    
+
     }//GEN-LAST:event_btnRegisterMouseClicked
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
-    
+
+    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseñaActionPerformed
+
     /**
      * @param args the command line arguments
      */
