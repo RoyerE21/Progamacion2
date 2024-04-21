@@ -103,7 +103,7 @@ public class Usuario {
     /**
      * permite recuperar el numero de id almacendo en la variable ID
      *
-     * @return devuelve un int con el numero de ID
+     * @return devuelve un int con el numero de ID.
      */
     public int getID() {
         return ID;
