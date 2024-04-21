@@ -25,7 +25,7 @@ public class LogicaUsuario {
     public void read(Usuario objUsuario) throws IOException {
 
         AccesoDatos objAccesoDatos = new AccesoDatos();
-        objAccesoDatos.setNombreArchivo("archivoUsuariosSistema");
+        objAccesoDatos.setNombreArchivo("archivoUsuariosSistema.txt");
 
         objAccesoDatos.leer(objAccesoDatos);
 
@@ -34,10 +34,10 @@ public class LogicaUsuario {
             Usuario usuario = new Usuario();
             usuario.setID(Integer.parseInt(dato[0]));
             usuario.setNombreUsuario(dato[1]);
-            usuario.setContraseña(dato[2]);
-            usuario.setNombre(dato[3]);
-            usuario.setApellidos(dato[4]);
-            usuario.setCorreo(dato[5]);
+            usuario.setNombre(dato[2]);
+            usuario.setApellidos(dato[3]);
+            usuario.setCorreo(dato[4]);
+            usuario.setContraseña(dato[5]);
 
             
             objUsuario.agregarUsuarioLista(usuario);
@@ -59,12 +59,12 @@ public class LogicaUsuario {
 
         objUsuario.setID(objAccesoDatos.obtenerUltimoId(objAccesoDatos));
 
-        objAccesoDatos.setLinea(objUsuario.getID() + ","
-                + objUsuario.getNombreUsuario()+ ","
-                + objUsuario.getContraseña()+ ","
-                + objUsuario.getNombre()+ ","
-                + objUsuario.getApellidos()+ ","
-                + objUsuario.getCorreo());
+        objAccesoDatos.setLinea(objUsuario.getID() 
+                + "," + objUsuario.getNombreUsuario()
+                + ","+ objUsuario.getNombre()
+                + ","+ objUsuario.getApellidos()+ ","
+                + objUsuario.getCorreo()
+                + ","+objUsuario.getContraseña());
                
                 
 
@@ -81,7 +81,7 @@ public class LogicaUsuario {
     public void update(Usuario objUsuario) throws IOException {
 
         AccesoDatos objAccesoDatos = new AccesoDatos();
-        objAccesoDatos.setNombreArchivo("archivoUsuariosSistema");
+        objAccesoDatos.setNombreArchivo("archivoUsuariosSistema.txt");
         objAccesoDatos.leer(objAccesoDatos);
 
         int IdUsuario = objUsuario.getID();
@@ -96,12 +96,12 @@ public class LogicaUsuario {
 
             if (id == IdUsuario) {
                 String nombreUsuario = (objUsuario.getNombreUsuario() != null) ? objUsuario.getNombreUsuario() : dato[1];
-                String contraseña = (objUsuario.getContraseña() != null) ? objUsuario.getContraseña() : dato[2];
-                String nombre = (objUsuario.getNombre() != null) ? objUsuario.getNombre() : dato[3];
-                String primerApellido = (objUsuario.getApellidos() != null) ? objUsuario.getApellidos() : dato[4];
-                String segundoApellido = (objUsuario.getCorreo() != null) ? objUsuario.getCorreo() : dato[5];
+                String nombre = (objUsuario.getNombre() != null) ? objUsuario.getNombre() : dato[2];
+                String apellidos = (objUsuario.getApellidos() != null) ? objUsuario.getApellidos() : dato[3];
+                String correo = (objUsuario.getCorreo() != null) ? objUsuario.getCorreo() : dato[4];
+                String contraseña = (objUsuario.getContraseña() != null) ? objUsuario.getContraseña() : dato[5];
                 
-                elemento = IdUsuario + "," + nombreUsuario + "," + contraseña + "," + nombre + "," + primerApellido + "," +segundoApellido;
+                elemento = IdUsuario + "," + nombreUsuario + "," + nombre + "," + apellidos + "," + correo + "," +contraseña;
             }
             objAccesoDatos.agregarLineaLista(elemento);
         }
@@ -118,7 +118,7 @@ public class LogicaUsuario {
     public void delete(Usuario objUsuario) throws IOException {
 
         AccesoDatos objAccesoDatos = new AccesoDatos();
-        objAccesoDatos.setNombreArchivo("archivoUsuariosSistema");
+        objAccesoDatos.setNombreArchivo("archivoUsuariosSistema.txt");
         objAccesoDatos.leer(objAccesoDatos);
 
         int IdUsuario = objUsuario.getID();

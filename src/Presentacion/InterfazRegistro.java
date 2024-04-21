@@ -147,9 +147,9 @@ public class InterfazRegistro extends javax.swing.JFrame {
         Usuario objUsuario = new Usuario();
         
         objUsuario.setNombreUsuario(txtUser.getText());
+        objUsuario.setNombre(txtNombre.getText());
         objUsuario.setApellidos(txtApellido.getText());
         objUsuario.setCorreo(txtMail.getText());
-        objUsuario.setNombre(txtNombre.getText());
         objUsuario.setContraseña(txtContrasena.getText());
         
         
