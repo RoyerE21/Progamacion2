@@ -31,13 +31,13 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnRegister = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
-        txtUser = new javax.swing.JTextField();
-        SpaceUser = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
-        Password = new javax.swing.JPasswordField();
+        lblUsuario = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
+        lblContraseña = new javax.swing.JTextField();
         lblUserIcon = new javax.swing.JLabel();
         lblPanel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        txtContraseña = new javax.swing.JTextField();
         imgFrame2 = new javax.swing.JLabel();
         imgFrame3 = new javax.swing.JLabel();
 
@@ -75,33 +75,25 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         });
         jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, 370, 40));
 
-        txtUser.setText("Usuario:");
-        txtUser.setBorder(null);
-        txtUser.addActionListener(new java.awt.event.ActionListener() {
+        lblUsuario.setText("Usuario:");
+        lblUsuario.setBorder(null);
+        lblUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserActionPerformed(evt);
+                lblUsuarioActionPerformed(evt);
             }
         });
-        jPanel1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 50, 20));
+        jPanel1.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 50, 20));
 
-        SpaceUser.setText(" Ingrese Usuario");
-        SpaceUser.addActionListener(new java.awt.event.ActionListener() {
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SpaceUserActionPerformed(evt);
+                txtUsuarioActionPerformed(evt);
             }
         });
-        jPanel1.add(SpaceUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 380, 40));
+        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 380, 40));
 
-        txtPassword.setText("Contraseña:");
-        txtPassword.setBorder(null);
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
-
-        Password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PasswordActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 380, 40));
+        lblContraseña.setText("Contraseña:");
+        lblContraseña.setBorder(null);
+        jPanel1.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
 
         lblUserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Avatars_ngg.png"))); // NOI18N
         lblUserIcon.setText("jLabel3");
@@ -119,11 +111,17 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 448, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(205, Short.MAX_VALUE)
+                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 450, 370));
@@ -150,62 +148,72 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
+    private void lblUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserActionPerformed
+    }//GEN-LAST:event_lblUsuarioActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
+               String Usuario = "admin";
+       String Contraseña = "1234";
+       
+       //String Pass = new String(Password.getPassword());
+       
+       if(txtUsuario.getText().equals(Usuario) && txtContraseña.getText().equals(Contraseña)){
+             JOptionPane.showMessageDialog(null, "Usuario creado");
+           InterfazTomaDatos TM = new InterfazTomaDatos();
+           TM.setVisible(true);
+           this.dispose();
+           
+        
+       
+        TM.setVisible(true);
+        TM.setResizable(false);
+        TM.setLocationRelativeTo(null);
+        
+        
+        
+         
+       }else{
+           JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrectos");
+       }
+    }
+    /**
+     * Logica para el botón log in. Validar si el usuario es correcto
+     */
+    
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    // InterfazTomaDatos TM = new InterfazTomaDatos();
+        //  this.dispose();
+         //  TM.setVisible(true);
+           //this.dispose();
+           
+           InterfazTomaDatos TM = new InterfazTomaDatos();    
+        TM.setVisible(true);
+        TM.setResizable(false);
+        TM.setLocationRelativeTo(null);
+         
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-       String Usuario = "admin";
-       String Contraseña = "1234";
-       
-       String Pass = new String(Password.getPassword());
-       
-       if(txtUser.getText().equals(Usuario) && Pass.equals(Contraseña)){
-           InterfazTomaDatos TM = new InterfazTomaDatos();
-           TM.setVisible(true);
-           dispose();
-         
-       }else{
-           JOptionPane.showMessageDialog(this, "Usuario o Contraseña incorrectos");
-       }
+    
     }//GEN-LAST:event_btnLoginMouseClicked
     
      /**
      * Logica para el botón log in. Validar si el usuario es correcto
      */
-    
+  /*  
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        // TODO add your handling code here:
-       String Usuario = "admin";
-       String Contraseña = "1234";
-       
-       String Pass = new String(Password.getPassword());
-       
-       if(txtUser.getText().equals(Usuario) && Pass.equals(Contraseña)){
-           InterfazTomaDatos TM = new InterfazTomaDatos();
-           TM.setVisible(true);
-           dispose();
-         
-       }else{
-           JOptionPane.showMessageDialog(this, "Usuario o Contraseña incorrectos");
-       }
+ 
     }//GEN-LAST:event_btnRegisterActionPerformed
-
+*/
     private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
     
     }//GEN-LAST:event_btnRegisterMouseClicked
 
-    private void PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordActionPerformed
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordActionPerformed
-
-    private void SpaceUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpaceUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SpaceUserActionPerformed
+    }//GEN-LAST:event_txtUsuarioActionPerformed
     
     /**
      * @param args the command line arguments
@@ -243,17 +251,17 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField Password;
-    private javax.swing.JTextField SpaceUser;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel imgFrame2;
     private javax.swing.JLabel imgFrame3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField lblContraseña;
     private javax.swing.JLabel lblPanel;
     private javax.swing.JLabel lblUserIcon;
-    private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtUser;
+    private javax.swing.JTextField lblUsuario;
+    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
