@@ -14,7 +14,7 @@ public class Usuario {
      * la variable primerApellido almacena el primer apellido la variable
      * segundo Apellido almacena el segundo apellido
      */
-    private String nombreUsuario, contraseña, nombre, primerApellido, segundoApellido;
+    private String nombreUsuario, contraseña, nombre, apellidos, correo;
     /**
      * El ArrayList listaUsuarios almacena una lista con los nombres de los
      * usuarios creados
@@ -99,45 +99,7 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    /**
-     * permite recuperar el primer apellido almacenado en la varible
-     *
-     * @return devuleve un String con el primer apellido
-     */
-    public String getPrimerApellido() {
-        return primerApellido;
-    }
-
-    /**
-     * permite almacenar el primer apellido en la variable primerApellido
-     *
-     * @param primerApellido recibo un String con el primer apellido
-     */
-    public void setPrimerApellido(String primerApellido) {
-        this.primerApellido = primerApellido;
-    }
-
-    /**
-     * permite recuperar el segundo apellido almacedo en la variable
-     * segundoApellido
-     *
-     * @return devulve un String con el segundo apellido
-     */
-    public String getSegundoApellido() {
-        return segundoApellido;
-    }
-
-    /**
-     * permite almacenar el nombre del segundo apellido en la variable
-     * segundoApellido
-     *
-     * @param segundoApellido recibe un String con el nombre del segundo
-     * apellido
-     */
-    public void setSegundoApellido(String segundoApellido) {
-        this.segundoApellido = segundoApellido;
-    }
-
+   
     /**
      * permite recuperar el numero de id almacendo en la variable ID
      *
@@ -154,6 +116,23 @@ public class Usuario {
      */
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
 }

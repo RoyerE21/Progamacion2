@@ -29,7 +29,6 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
         btnRegister = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
         txtUser = new javax.swing.JTextField();
@@ -47,13 +46,6 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setForeground(new java.awt.Color(73, 80, 87));
-        jCheckBox1.setText("Recuerdame");
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 480, -1, -1));
-
-        btnRegister.setBackground(new java.awt.Color(255, 255, 255));
-        btnRegister.setForeground(new java.awt.Color(0, 0, 0));
         btnRegister.setText("Crear una Cuenta nueva");
         btnRegister.setBorder(null);
         btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -83,8 +75,6 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         });
         jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, 370, 40));
 
-        txtUser.setBackground(new java.awt.Color(255, 255, 255));
-        txtUser.setForeground(new java.awt.Color(0, 0, 0));
         txtUser.setText("Usuario:");
         txtUser.setBorder(null);
         txtUser.addActionListener(new java.awt.event.ActionListener() {
@@ -97,8 +87,6 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         SpaceUser.setText(" Ingrese Usuario");
         jPanel1.add(SpaceUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 380, 40));
 
-        txtPassword.setBackground(new java.awt.Color(255, 255, 255));
-        txtPassword.setForeground(new java.awt.Color(0, 0, 0));
         txtPassword.setText("Contraseña:");
         txtPassword.setBorder(null);
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
@@ -242,7 +230,6 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel imgFrame2;
     private javax.swing.JLabel imgFrame3;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblPanel;

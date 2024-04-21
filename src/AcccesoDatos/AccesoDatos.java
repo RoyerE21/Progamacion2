@@ -44,7 +44,7 @@ public class AccesoDatos {
         while ((linea = objBufferedReader.readLine()) != null) {
 
             String[] datos = linea.split(",");
-            if (datos.length >= 4) {
+            if (datos.length >= 6) {
                 int ultimoId = Integer.parseInt(datos[0]);
                 if (ultimoId > nuevoId) {
                     nuevoId = ultimoId;

@@ -36,8 +36,8 @@ public class LogicaUsuario {
             usuario.setNombreUsuario(dato[1]);
             usuario.setContraseña(dato[2]);
             usuario.setNombre(dato[3]);
-            usuario.setPrimerApellido(dato[4]);
-            usuario.setPrimerApellido(dato[5]);
+            usuario.setApellidos(dato[4]);
+            usuario.setCorreo(dato[5]);
 
             
             objUsuario.agregarUsuarioLista(usuario);
@@ -63,8 +63,8 @@ public class LogicaUsuario {
                 + objUsuario.getNombreUsuario()+ ","
                 + objUsuario.getContraseña()+ ","
                 + objUsuario.getNombre()+ ","
-                + objUsuario.getPrimerApellido()+ ","
-                + objUsuario.getSegundoApellido());
+                + objUsuario.getApellidos()+ ","
+                + objUsuario.getCorreo());
                
                 
 
@@ -98,8 +98,8 @@ public class LogicaUsuario {
                 String nombreUsuario = (objUsuario.getNombreUsuario() != null) ? objUsuario.getNombreUsuario() : dato[1];
                 String contraseña = (objUsuario.getContraseña() != null) ? objUsuario.getContraseña() : dato[2];
                 String nombre = (objUsuario.getNombre() != null) ? objUsuario.getNombre() : dato[3];
-                String primerApellido = (objUsuario.getPrimerApellido() != null) ? objUsuario.getPrimerApellido() : dato[4];
-                String segundoApellido = (objUsuario.getSegundoApellido() != null) ? objUsuario.getSegundoApellido() : dato[5];
+                String primerApellido = (objUsuario.getApellidos() != null) ? objUsuario.getApellidos() : dato[4];
+                String segundoApellido = (objUsuario.getCorreo() != null) ? objUsuario.getCorreo() : dato[5];
                 
                 elemento = IdUsuario + "," + nombreUsuario + "," + contraseña + "," + nombre + "," + primerApellido + "," +segundoApellido;
             }

@@ -5,8 +5,8 @@
 package Presentacion;
 
 import Entidades.Usuario;
+import LogicaNegocio.LogicaUsuario;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,21 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class InterfazRegistro extends javax.swing.JFrame {
 
-    /**
-     * Trae el ArrayList de listaUsuarios
-     */
-    ArrayList<Usuario> listaUsuarios;
-    public String nombreUsuario;
-
-    public InterfazRegistro(ArrayList<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
-        initComponents();
-    }
-
-    public void agregarUsuarioLista(Usuario usuario) {
-        this.listaUsuarios.add(usuario);
-    }
-
+    
 
 
    
@@ -108,8 +94,6 @@ public class InterfazRegistro extends javax.swing.JFrame {
         });
         jplRegister.add(btnSingup, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 120, 30));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("¿Ya tienes una cuenta?");
         jButton1.setBorder(null);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,26 +139,43 @@ public class InterfazRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void btnSingupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSingupActionPerformed
-        // TODO add your handling code here:
-
+      
+ 
+        LogicaUsuario objLogicaUsuario = new LogicaUsuario();
+        Usuario objUsuario = new Usuario();
+        
+        objUsuario.setNombreUsuario(txtUser.getText());
+        objUsuario.setApellidos(txtApellido.getText());
+        objUsuario.setCorreo(txtMail.getText());
+        objUsuario.setNombre(txtNombre.getText());
+        objUsuario.setContraseña(txtContrasena.getText());
+        
+        
+        
+        try {
+            objLogicaUsuario.insert(objUsuario);
+            JOptionPane.showMessageDialog(null, "Usuario Creado Exitosamente", "Información Sisitema", JOptionPane.INFORMATION_MESSAGE);
+            
+        } catch (IOException ex) {
+            
+            JOptionPane.showMessageDialog(null, "Errro Al Crear El Usuario "+ex.getMessage(), "Error de Sisitema", JOptionPane.ERROR_MESSAGE);
+            
+        }
+        
     
-        // Obtener el nombre de usuario ingresado por el usuario desde algún campo de entrada
-        String nombreUsuario = txtUser.getText(); 
-
-        // Crear un nuevo objeto Usuario con la información ingresada
-        Usuario txtUser = new Usuario(nuevoUsuario);
-
-        // Agregar el nuevo usuario a la lista de usuarios
-        agregarlistaUsuarios(nuevoUsuario);
-
-        // Limpiar el campo de entrada después de agregar el usuario
-        txtUser.setText("");
-    
+        
+        
+        
+        
+        
+        
+  
 
 
         InterfazInicioSesion newframe = new InterfazInicioSesion();
 
         newframe.setVisible(true);
+        
 
         this.dispose();
     }//GEN-LAST:event_btnSingupActionPerformed
