@@ -135,7 +135,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
 
         newframe.setVisible(true);
 
-        this.dispose();
+        
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void btnSingupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSingupActionPerformed
@@ -177,7 +177,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
         newframe.setVisible(true);
         
 
-        this.dispose();
+      
     }//GEN-LAST:event_btnSingupActionPerformed
 
     /**

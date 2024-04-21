@@ -85,11 +85,22 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         jPanel1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 50, 20));
 
         SpaceUser.setText(" Ingrese Usuario");
+        SpaceUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SpaceUserActionPerformed(evt);
+            }
+        });
         jPanel1.add(SpaceUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 380, 40));
 
         txtPassword.setText("Contraseña:");
         txtPassword.setBorder(null);
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
+
+        Password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasswordActionPerformed(evt);
+            }
+        });
         jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 380, 40));
 
         lblUserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Avatars_ngg.png"))); // NOI18N
@@ -187,6 +198,14 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
     private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
     
     }//GEN-LAST:event_btnRegisterMouseClicked
+
+    private void PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordActionPerformed
+
+    private void SpaceUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpaceUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SpaceUserActionPerformed
     
     /**
      * @param args the command line arguments
