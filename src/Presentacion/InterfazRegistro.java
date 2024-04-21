@@ -31,6 +31,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        imgFont = new javax.swing.JLabel();
         jplRegister = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
@@ -41,13 +42,16 @@ public class InterfazRegistro extends javax.swing.JFrame {
         lblMail = new javax.swing.JLabel();
         lblApellido = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextArea();
         txtApellido = new javax.swing.JTextField();
         btnSingup = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        imgFont = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+
+        imgFont.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/left_Background.png"))); // NOI18N
+        imgFont.setText("jLabel1");
+        imgFont.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,11 +80,6 @@ public class InterfazRegistro extends javax.swing.JFrame {
 
         lblNombre.setText("Nombre:");
         jplRegister.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, -1, -1));
-
-        txtNombre.setColumns(20);
-        txtNombre.setRows(5);
-        txtNombre.setText("\n");
-        jplRegister.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 140, 30));
         jplRegister.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 140, 30));
 
         btnSingup.setText("Registrarse");
@@ -105,28 +104,30 @@ public class InterfazRegistro extends javax.swing.JFrame {
         });
         jplRegister.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 470, -1, -1));
 
-        imgFont.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/left_Background.png"))); // NOI18N
-        imgFont.setText("jLabel1");
-        imgFont.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jplRegister.add(imgFont, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 650, 540));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame2.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jplRegister.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 940, -1));
+        jplRegister.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 940, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame2.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jplRegister.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 930, -1));
+        jplRegister.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 930, -1));
+        jplRegister.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jplRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 1330, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jplRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 1330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jplRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jplRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -245,7 +246,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtMail;
-    private javax.swing.JTextArea txtNombre;
+    private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
