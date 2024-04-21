@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author regr9
+ * "@author regr9"
  */
 public class InterfazInicioSesion extends javax.swing.JFrame {
 
@@ -38,7 +38,7 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         Password = new javax.swing.JPasswordField();
         lblUserIcon = new javax.swing.JLabel();
         lblPanel = new javax.swing.JLabel();
-        lblSpacelogin = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         imgFrame2 = new javax.swing.JLabel();
         imgFrame3 = new javax.swing.JLabel();
 
@@ -113,10 +113,21 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         lblPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(lblPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 450, -1));
 
-        lblSpacelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Card_Content.png"))); // NOI18N
-        lblSpacelogin.setText("jLabel2");
-        lblSpacelogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(lblSpacelogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 450, -1));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 448, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 368, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 450, 370));
 
         imgFrame2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame2.png"))); // NOI18N
         imgFrame2.setText("jLabel5");
@@ -163,18 +174,30 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(this, "Usuario o Contraseña incorrectos");
        }
     }//GEN-LAST:event_btnLoginMouseClicked
-
+    
+     /**
+     * Logica para el botón log in. Validar si el usuario es correcto
+     */
+    
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
+       String Usuario = "admin";
+       String Contraseña = "1234";
+       
+       String Pass = new String(Password.getPassword());
+       
+       if(txtUser.getText().equals(Usuario) && Pass.equals(Contraseña)){
+           InterfazTomaDatos TM = new InterfazTomaDatos();
+           TM.setVisible(true);
+           dispose();
+         
+       }else{
+           JOptionPane.showMessageDialog(this, "Usuario o Contraseña incorrectos");
+       }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
-        
-        InterfazRegistro newframe = new InterfazRegistro();
-        
-        newframe.setVisible(true);
-        
-        this.dispose();
+    
     }//GEN-LAST:event_btnRegisterMouseClicked
     
     /**
@@ -221,8 +244,8 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
     private javax.swing.JLabel imgFrame3;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblPanel;
-    private javax.swing.JLabel lblSpacelogin;
     private javax.swing.JLabel lblUserIcon;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUser;
