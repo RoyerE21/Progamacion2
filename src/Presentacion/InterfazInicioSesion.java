@@ -187,10 +187,10 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
          //  TM.setVisible(true);
            //this.dispose();
            
-           InterfazTomaDatos TM = new InterfazTomaDatos();    
-        TM.setVisible(true);
-        TM.setResizable(false);
-        TM.setLocationRelativeTo(null);
+           InterfazRegistro objInterfazRegistro = new InterfazRegistro();    
+        objInterfazRegistro.setVisible(true);
+        objInterfazRegistro.setResizable(false);
+        objInterfazRegistro.setLocationRelativeTo(null);
          
 
     }//GEN-LAST:event_btnLoginActionPerformed
