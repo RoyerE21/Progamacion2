@@ -55,7 +55,7 @@ public class LogicaUsuario {
     public void insert(Usuario objUsuario) throws IOException {
 
         objAccesoDatos = new AccesoDatos();
-        objAccesoDatos.setNombreArchivo("archivoUsuariosSistema");
+        objAccesoDatos.setNombreArchivo("archivoUsuariosSistema.txt");
 
         objUsuario.setID(objAccesoDatos.obtenerUltimoId(objAccesoDatos));
 

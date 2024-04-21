@@ -15,7 +15,9 @@ import javax.swing.JOptionPane;
  */
 public class InterfazRegistro extends javax.swing.JFrame {
 
-    
+    public InterfazRegistro() {
+        initComponents();
+    }
 
 
    
