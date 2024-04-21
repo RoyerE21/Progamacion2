@@ -16,7 +16,7 @@ public class AccesoDatos {
     /**
      * la variable nombreArchivo va a almacenar el nombre del archivo que tiene
      * los usuarios la variable linea va a almacenar toda la linea que
-     * corresponde a un usuario
+     * corresponde a un usuario.
      *
      */
     private String nombreArchivo, linea;

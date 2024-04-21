@@ -17,7 +17,7 @@ public class LogicaUsuario {
     
     /**
      * El metodo read permite leer el archivo texto 
-     * @param objUsuario el metodo read recibe un objeto de un parametro de tipo Usuario
+     * @param objUsuario el metodo read recibe un objeto de un parametro de tipo Usuario.
      * @throws IOException 
      */
 
