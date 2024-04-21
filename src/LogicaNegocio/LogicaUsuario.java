@@ -112,7 +112,7 @@ public class LogicaUsuario {
     
     /**
      * El metodo delete permite borrar el usuario que se seleccione en el archivo de texto 
-     * @param objUsuario el metodo read recibe un objeto de un parametro de tipo Usuario
+     * @param objUsuario el metodo read recibe un objeto de un parametro de tipo Usuario.
      * @throws IOException 
      */
     public void delete(Usuario objUsuario) throws IOException {

@@ -23,7 +23,7 @@ public class AccesoDatos {
 
     /**
      * el ArrayList lista almacena la lista de usuarios escritos en el archivo
-     * de texto
+     * de texto.
      */
     private ArrayList<String> lista = new ArrayList<>();
 
