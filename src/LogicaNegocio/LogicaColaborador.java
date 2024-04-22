@@ -59,6 +59,32 @@ public class LogicaColaborador {
      * las deducciones de caja al patrono
      */
     private static double deduccionCajaPatrono;
+
+    /**
+     * En esta variable de tipo privada se almacenará el monto correspondiente a
+     * las deducciones SEM al patrono y trabajdor
+     */
+    private static double totalSem;
+    /**
+     * En esta variable de tipo privada se almacenará el monto correspondiente a
+     * las deducciones IVM al patrono y trabajdor
+     */
+    private static double totalIvm;
+    /**
+     * En esta variable de tipo privada se almacenará el monto correspondiente a
+     * las deducciones CCSS al patrono y trabajdor
+     */
+    private static double totalCcss;
+    /**
+     * En esta variable de tipo privada se almacenará el monto correspondiente a
+     * las deducciones LPT al patrono y trabajdor
+     */
+    private static double totalLpt;
+    /**
+     * En esta variable de tipo privada se almacenará el monto correspondiente a
+     * las deducciones Totales al patrono y trabajdor
+     */
+    private static double aporteTotal;
     /**
      * En esta variable de tipo privada se almacenará el monto correspondiente a
      * las deducciones de CuotaPatronalBancoPopular
@@ -141,6 +167,56 @@ public class LogicaColaborador {
     private static double lptTrabajador;
 
     /**
+     * Sumatoria de los impuestos SEM del trabajador y patrono
+     *
+     * @return totalSem
+     */
+    public static double calculoTotalSem() {
+        totalSem = deduccionSemPatrono + deduccionSemTrabajador;
+        return totalSem;
+    }
+
+    /**
+     * Sumatoria de los impuestos IVM del trabajador y patrono
+     *
+     * @return totalIvm
+     */
+    public static double calculoTotalIvm() {
+        totalIvm = deduccionIvmPatrono + deduccionIvmTrabajador;
+        return totalIvm;
+    }
+
+    /**
+     * Sumatoria de los impuestos CCSS del trabajador y patrono
+     *
+     * @return totalCcss
+     */
+    public static double calculoTotalCaja() {
+        totalCcss = deduccionCajaPatrono + deduccionCajaTrabajador;
+        return totalCcss;
+    }
+
+    /**
+     * Sumatoria de los impuestos LPT del trabajador y patrono
+     *
+     * @return totalLpt
+     */
+    public static double calculoTotalLpt() {
+        totalLpt = lptPatrono + lptTrabajador;
+        return totalLpt;
+    }
+
+    /**
+     * Sumatoria de los impuestos CCSS totales del trabajador y patrono
+     *
+     * @return aporteTotal
+     */
+    public static double deduccionesCcss() {
+        aporteTotal = aporteTotalPatrono + deduccionesCcssColaborador;
+        return aporteTotal;
+    }
+
+    /**
      * En este metodo se calcula el total del dinero generado por el trabajador
      * mulplicando sus horas extras por su salario de hora y por 1.5 en este
      * caso
@@ -161,7 +237,6 @@ public class LogicaColaborador {
      * @param objColaborador
      * @return totalHorasExtrasDobles
      */
-
     public static double calculoHorasExtrasDobles(Colaborador objColaborador) {
         totalHorasExtrasDobles = objColaborador.getExtrasDobles() * objColaborador.getSalarioHora() * 2;
         return totalHorasExtrasDobles;
@@ -384,9 +459,10 @@ public class LogicaColaborador {
         salarioNeto = salarioSinDeducciones - impuestosSobreRenta - deduccionesCcssColaborador;
         return salarioNeto;
     }
-/**
-     * En este metodo se calcula el impuesto correspondiente al SEM del trabajador,
-     * el cual es de un 5.50% sobre el salario bruto
+
+    /**
+     * En este metodo se calcula el impuesto correspondiente al SEM del
+     * trabajador, el cual es de un 5.50% sobre el salario bruto
      *
      * @return deduccionSemTrabajador
      */
@@ -394,9 +470,10 @@ public class LogicaColaborador {
         deduccionSemTrabajador = salarioSinDeducciones * 0.055;
         return deduccionSemTrabajador;
     }
- /**
-     * En este metodo se calcula el impuesto correspondiente al IVM del trabajador,
-     * el cual es de un 4.17% sobre el salario bruto
+
+    /**
+     * En este metodo se calcula el impuesto correspondiente al IVM del
+     * trabajador, el cual es de un 4.17% sobre el salario bruto
      *
      * @return deduccionIvmTrabajador
      */
@@ -404,7 +481,8 @@ public class LogicaColaborador {
         deduccionIvmTrabajador = salarioSinDeducciones * 0.0417;
         return deduccionIvmTrabajador;
     }
-  /**
+
+    /**
      * En este metodo se calcula el impuesto correspondiente al total de
      * deducciones de la caja al trabajador, el cual es de un 9.67% sobre el
      * salario bruto
@@ -415,9 +493,10 @@ public class LogicaColaborador {
         deduccionCajaTrabajador = deduccionIvmTrabajador + deduccionSemTrabajador;
         return deduccionCajaTrabajador;
     }
- /**
-     * En este metodo se calcula el impuesto correspondiente al Aporte Trabajador
-     * Banco Popular, el cual es de un 1% sobre el salario bruto
+
+    /**
+     * En este metodo se calcula el impuesto correspondiente al Aporte
+     * Trabajador Banco Popular, el cual es de un 1% sobre el salario bruto
      *
      * @return deduccionAportePopularTrabajador
      */
@@ -425,387 +504,566 @@ public class LogicaColaborador {
         deduccionAportePopularTrabajador = salarioSinDeducciones * 0.01;
         return deduccionAportePopularTrabajador;
     }
-/**
- *En este metodo se calcula el impuesto correspondiente al total de
- * deducciones LPT al trabajador, el cual es de un 1% sobre el salario bruto
- * @return lptTrabajador
- */
+
+    /**
+     * En este metodo se calcula el impuesto correspondiente al total de
+     * deducciones LPT al trabajador, el cual es de un 1% sobre el salario bruto
+     *
+     * @return lptTrabajador
+     */
     public static double totalLptTrabajador() {
         lptTrabajador = deduccionAportePopularTrabajador;
         return lptTrabajador;
     }
-/**
- *En este metodo se calcula el impuesto correspondiente al total de
- * deducciones de CCSS al trabajador, el cual es de un 10.67% sobre el salario bruto
- * @return deduccionesCcssColaborador
- */
+
+    /**
+     * En este metodo se calcula el impuesto correspondiente al total de
+     * deducciones de CCSS al trabajador, el cual es de un 10.67% sobre el
+     * salario bruto
+     *
+     * @return deduccionesCcssColaborador
+     */
     public static double deduccionesCcssColaborador() {
         deduccionesCcssColaborador = lptTrabajador + deduccionCajaTrabajador;
         return deduccionesCcssColaborador;
     }
-/**
- * Funcion get de salario base
- * @return totalSalarioBase
- */
+
+    /**
+     * Funcion get de salario base
+     *
+     * @return totalSalarioBase
+     */
     public static double getTotalSalarioBase() {
         return totalSalarioBase;
     }
-/**
- * Funcion set de totalSalarioBase
- * @param aTotalSalarioBase 
- */
+
+    /**
+     * Funcion set de totalSalarioBase
+     *
+     * @param aTotalSalarioBase
+     */
     public static void setTotalSalarioBase(double aTotalSalarioBase) {
         totalSalarioBase = aTotalSalarioBase;
     }
-/**
- * Funcion get de HorasExtrasDobles
- * @return totalHorasExtrasDobles
- */
+
+    /**
+     * Funcion get de HorasExtrasDobles
+     *
+     * @return totalHorasExtrasDobles
+     */
     public static double getTotalHorasExtrasDobles() {
         return totalHorasExtrasDobles;
     }
-/**
- * Funcion set de totalHorasExtrasDobles
- * @param aTotalHorasExtrasDobles 
- */
+
+    /**
+     * Funcion set de totalHorasExtrasDobles
+     *
+     * @param aTotalHorasExtrasDobles
+     */
     public static void setTotalHorasExtrasDobles(double aTotalHorasExtrasDobles) {
         totalHorasExtrasDobles = aTotalHorasExtrasDobles;
     }
-/**
- * Funcion get de TotalHorasExtrasNormales
- * @return totalHorasExtrasNormales
- */
+
+    /**
+     * Funcion get de TotalHorasExtrasNormales
+     *
+     * @return totalHorasExtrasNormales
+     */
     public static double getTotalHorasExtrasNormales() {
         return totalHorasExtrasNormales;
     }
-/**
- * Funcion set de totalHorasExtrasNormales
- * @param aTotalHorasExtrasNormales 
- */
+
+    /**
+     * Funcion set de totalHorasExtrasNormales
+     *
+     * @param aTotalHorasExtrasNormales
+     */
     public static void setTotalHorasExtrasNormales(double aTotalHorasExtrasNormales) {
         totalHorasExtrasNormales = aTotalHorasExtrasNormales;
     }
-/**
- * Funcion get de SalarioSinDeducciones
- * @return salarioSinDeducciones
- */
+
+    /**
+     * Funcion get de SalarioSinDeducciones
+     *
+     * @return salarioSinDeducciones
+     */
     public static double getSalarioSinDeducciones() {
         return salarioSinDeducciones;
     }
-/**
- * Funcion set de salarioSinDeducciones
- * @param aSalarioSinDeducciones 
- */
+
+    /**
+     * Funcion set de salarioSinDeducciones
+     *
+     * @param aSalarioSinDeducciones
+     */
     public static void setSalarioSinDeducciones(double aSalarioSinDeducciones) {
         salarioSinDeducciones = aSalarioSinDeducciones;
     }
-/**
- * Funcion get de DeduccionesCcssColaborador
- * @return deduccionesCcssColaborador
- */
+
+    /**
+     * Funcion get de DeduccionesCcssColaborador
+     *
+     * @return deduccionesCcssColaborador
+     */
     public static double getDeduccionesCcssColaborador() {
         return deduccionesCcssColaborador;
     }
-/**
- * Funcion set de deduccionesCcssColaborador
- * @param aDeduccionesCcssColaborador 
- */
+
+    /**
+     * Funcion set de deduccionesCcssColaborador
+     *
+     * @param aDeduccionesCcssColaborador
+     */
     public static void setDeduccionesCcssColaborador(double aDeduccionesCcssColaborador) {
         deduccionesCcssColaborador = aDeduccionesCcssColaborador;
     }
-/**
- * Funcion get de ImpuestosSobreRenta
- * @return impuestosSobreRenta
- */
+
+    /**
+     * Funcion get de ImpuestosSobreRenta
+     *
+     * @return impuestosSobreRenta
+     */
     public static double getImpuestosSobreRenta() {
         return impuestosSobreRenta;
     }
-/**
- * Funcion set de impuestosSobreRenta
- * @param aImpuestosSobreRenta 
- */
+
+    /**
+     * Funcion set de impuestosSobreRenta
+     *
+     * @param aImpuestosSobreRenta
+     */
     public static void setImpuestosSobreRenta(double aImpuestosSobreRenta) {
         impuestosSobreRenta = aImpuestosSobreRenta;
     }
-/**
- * Funcion get de getSalarioNeto
- * @return salarioNeto
- */
+
+    /**
+     * Funcion get de getSalarioNeto
+     *
+     * @return salarioNeto
+     */
     public static double getSalarioNeto() {
         return salarioNeto;
     }
-/**
- * Funcion set de salarioNeto
- * @param aSalarioNeto 
- */
+
+    /**
+     * Funcion set de salarioNeto
+     *
+     * @param aSalarioNeto
+     */
     public static void setSalarioNeto(double aSalarioNeto) {
         salarioNeto = aSalarioNeto;
     }
-/**
- * Funcion get de DeduccionSemPatrono
- * @return deduccionSemPatrono
- */
+
+    /**
+     * Funcion get de DeduccionSemPatrono
+     *
+     * @return deduccionSemPatrono
+     */
     public static double getDeduccionSemPatrono() {
         return deduccionSemPatrono;
     }
-/**
- * Funcion set de deduccionSemPatrono
- * @param aDeduccionSemPatrono 
- */
+
+    /**
+     * Funcion set de deduccionSemPatrono
+     *
+     * @param aDeduccionSemPatrono
+     */
     public static void setDeduccionSemPatrono(double aDeduccionSemPatrono) {
         deduccionSemPatrono = aDeduccionSemPatrono;
     }
-/**
- * Funcion get de DeduccionIvmPatrono
- * @return deduccionIvmPatrono
- */
+
+    /**
+     * Funcion get de DeduccionIvmPatrono
+     *
+     * @return deduccionIvmPatrono
+     */
     public static double getDeduccionIvmPatrono() {
         return deduccionIvmPatrono;
     }
-/**
- * Funcion set de deduccionIvmPatrono
- * @param aDeduccionIvmPatrono 
- */
+
+    /**
+     * Funcion set de deduccionIvmPatrono
+     *
+     * @param aDeduccionIvmPatrono
+     */
     public static void setDeduccionIvmPatrono(double aDeduccionIvmPatrono) {
         deduccionIvmPatrono = aDeduccionIvmPatrono;
     }
-/**
- * Funcion get de DeduccionCajaPatrono
- * @return deduccionCajaPatrono
- */
+
+    /**
+     * Funcion get de DeduccionCajaPatrono
+     *
+     * @return deduccionCajaPatrono
+     */
     public static double getDeduccionCajaPatrono() {
         return deduccionCajaPatrono;
     }
-/**
- * Funcion set de deduccionCajaPatrono
- * @param aDeduccionCajaPatrono 
- */
+
+    /**
+     * Funcion set de deduccionCajaPatrono
+     *
+     * @param aDeduccionCajaPatrono
+     */
     public static void setDeduccionCajaPatrono(double aDeduccionCajaPatrono) {
         deduccionCajaPatrono = aDeduccionCajaPatrono;
     }
-/**
- * Funcion get de DeduccionCuotaPopularPatrono
- * @return deduccionCuotaPopularPatrono
- */
+
+    /**
+     * Funcion get de DeduccionCuotaPopularPatrono
+     *
+     * @return deduccionCuotaPopularPatrono
+     */
     public static double getDeduccionCuotaPopularPatrono() {
         return deduccionCuotaPopularPatrono;
     }
-/**
- * Funcion set de deduccionCuotaPopularPatrono
- * @param aDeduccionCuotaPopularPatrono 
- */
+
+    /**
+     * Funcion set de deduccionCuotaPopularPatrono
+     *
+     * @param aDeduccionCuotaPopularPatrono
+     */
     public static void setDeduccionCuotaPopularPatrono(double aDeduccionCuotaPopularPatrono) {
         deduccionCuotaPopularPatrono = aDeduccionCuotaPopularPatrono;
     }
-/**
- * Funcion get de DeduccionAsignacionesFamiliares
- * @return deduccionAsignacionesFamiliares
- */
+
+    /**
+     * Funcion get de DeduccionAsignacionesFamiliares
+     *
+     * @return deduccionAsignacionesFamiliares
+     */
     public static double getDeduccionAsignacionesFamiliares() {
         return deduccionAsignacionesFamiliares;
     }
-/**
- * Funcion set de deduccionAsignacionesFamiliares
- * @param aDeduccionAsignacionesFamiliares 
- */
+
+    /**
+     * Funcion set de deduccionAsignacionesFamiliares
+     *
+     * @param aDeduccionAsignacionesFamiliares
+     */
     public static void setDeduccionAsignacionesFamiliares(double aDeduccionAsignacionesFamiliares) {
         deduccionAsignacionesFamiliares = aDeduccionAsignacionesFamiliares;
     }
-/**
- * Funcion get de DeduccionImas
- * @return deduccionImas
- */
+
+    /**
+     * Funcion get de DeduccionImas
+     *
+     * @return deduccionImas
+     */
     public static double getDeduccionImas() {
         return deduccionImas;
     }
-/**
- * Funcion set de deduccionImas
- * @param aDeduccionImas 
- */
+
+    /**
+     * Funcion set de deduccionImas
+     *
+     * @param aDeduccionImas
+     */
     public static void setDeduccionImas(double aDeduccionImas) {
         deduccionImas = aDeduccionImas;
     }
-/**
- * Funcion get de DeduccionIna
- * @return deduccionIna
- */
+
+    /**
+     * Funcion get de DeduccionIna
+     *
+     * @return deduccionIna
+     */
     public static double getDeduccionIna() {
         return deduccionIna;
     }
-/**
- * Funcion set de deduccionIna
- * @param aDeduccionIna 
- */
+
+    /**
+     * Funcion set de deduccionIna
+     *
+     * @param aDeduccionIna
+     */
     public static void setDeduccionIna(double aDeduccionIna) {
         deduccionIna = aDeduccionIna;
     }
-/**
- * Funcion get de OtrasInstituciones
- * @return otrasInstituciones
- */
+
+    /**
+     * Funcion get de OtrasInstituciones
+     *
+     * @return otrasInstituciones
+     */
     public static double getOtrasInstituciones() {
         return otrasInstituciones;
     }
-/**
- * Funcion set de otrasInstituciones
- * @param aOtrasInstituciones 
- */
+
+    /**
+     * Funcion set de otrasInstituciones
+     *
+     * @param aOtrasInstituciones
+     */
     public static void setOtrasInstituciones(double aOtrasInstituciones) {
         otrasInstituciones = aOtrasInstituciones;
     }
-/**
- * Funcion get de deduccionAportePopularPatrono
- * @return deduccionAportePopularPatrono
- */
+
+    /**
+     * Funcion get de deduccionAportePopularPatrono
+     *
+     * @return deduccionAportePopularPatrono
+     */
     public static double getDeduccionAportePopularPatrono() {
         return deduccionAportePopularPatrono;
     }
-/**
- * Funcion set de deduccionAportePopularPatrono
- * @param aDeduccionAportePopularPatrono 
- */
+
+    /**
+     * Funcion set de deduccionAportePopularPatrono
+     *
+     * @param aDeduccionAportePopularPatrono
+     */
     public static void setDeduccionAportePopularPatrono(double aDeduccionAportePopularPatrono) {
         deduccionAportePopularPatrono = aDeduccionAportePopularPatrono;
     }
-/**
- * Funcion get de totalFondoCapitalizacion
- * @return totalFondoCapitalizacion
- */
+
+    /**
+     * Funcion get de totalFondoCapitalizacion
+     *
+     * @return totalFondoCapitalizacion
+     */
     public static double getTotalFondoCapitalizacion() {
         return totalFondoCapitalizacion;
     }
-/**
- * Funcion set de totalFondoCapitalizacion
- * @param aTotalFondoCapitalizacion 
- */
+
+    /**
+     * Funcion set de totalFondoCapitalizacion
+     *
+     * @param aTotalFondoCapitalizacion
+     */
     public static void setTotalFondoCapitalizacion(double aTotalFondoCapitalizacion) {
         totalFondoCapitalizacion = aTotalFondoCapitalizacion;
     }
-/**
- * Funcion get de totalFondoPensiones
- * @return totalFondoPensiones
- */
+
+    /**
+     * Funcion get de totalFondoPensiones
+     *
+     * @return totalFondoPensiones
+     */
     public static double getTotalFondoPensiones() {
         return totalFondoPensiones;
     }
-/**
- * Funcion set de totalFondoPensiones
- * @param aTotalFondoPensiones 
- */
+
+    /**
+     * Funcion set de totalFondoPensiones
+     *
+     * @param aTotalFondoPensiones
+     */
     public static void setTotalFondoPensiones(double aTotalFondoPensiones) {
         totalFondoPensiones = aTotalFondoPensiones;
     }
-/**
- * Funcion get de totalIns
- * @return totalIns
- */
+
+    /**
+     * Funcion get de totalIns
+     *
+     * @return totalIns
+     */
     public static double getTotalIns() {
         return totalIns;
     }
-/**
- * Funcion set de totalIns
- * @param aTotalIns 
- */
+
+    /**
+     * Funcion set de totalIns
+     *
+     * @param aTotalIns
+     */
     public static void setTotalIns(double aTotalIns) {
         totalIns = aTotalIns;
     }
-/**
- * Funcion get de lptPatrono
- * @return lptPatrono
- */
+
+    /**
+     * Funcion get de lptPatrono
+     *
+     * @return lptPatrono
+     */
     public static double getLptPatrono() {
         return lptPatrono;
     }
-/**
- * Funcion set de lptPatrono
- * @param aLptPatrono 
- */
+
+    /**
+     * Funcion set de lptPatrono
+     *
+     * @param aLptPatrono
+     */
     public static void setLptPatrono(double aLptPatrono) {
         lptPatrono = aLptPatrono;
     }
-/**
- * Funcion get de aporteTotalPatrono
- * @return aporteTotalPatrono
- */
+
+    /**
+     * Funcion get de aporteTotalPatrono
+     *
+     * @return aporteTotalPatrono
+     */
     public static double getAporteTotalPatrono() {
         return aporteTotalPatrono;
     }
-/**
- * Funcion set de aporteTotalPatrono
- * @param aAporteTotalPatrono 
- */
+
+    /**
+     * Funcion set de aporteTotalPatrono
+     *
+     * @param aAporteTotalPatrono
+     */
     public static void setAporteTotalPatrono(double aAporteTotalPatrono) {
         aporteTotalPatrono = aAporteTotalPatrono;
     }
-/**
- * Funcion get de deduccionSemTrabajador
- * @return deduccionSemTrabajador
- */
+
+    /**
+     * Funcion get de deduccionSemTrabajador
+     *
+     * @return deduccionSemTrabajador
+     */
     public static double getDeduccionSemTrabajador() {
         return deduccionSemTrabajador;
     }
-/**
- * Funcion set de deduccionSemTrabajador
- * @param aDeduccionSemTrabajador 
- */
+
+    /**
+     * Funcion set de deduccionSemTrabajador
+     *
+     * @param aDeduccionSemTrabajador
+     */
     public static void setDeduccionSemTrabajador(double aDeduccionSemTrabajador) {
         deduccionSemTrabajador = aDeduccionSemTrabajador;
     }
-/**
- * Funcion get de deduccionIvmTrabajador
- * @return deduccionIvmTrabajador
- */
+
+    /**
+     * Funcion get de deduccionIvmTrabajador
+     *
+     * @return deduccionIvmTrabajador
+     */
     public static double getDeduccionIvmTrabajador() {
         return deduccionIvmTrabajador;
     }
-/**
- * Funcion set de deduccionIvmTrabajador
- * @param aDeduccionIvmTrabajador 
- */
+
+    /**
+     * Funcion set de deduccionIvmTrabajador
+     *
+     * @param aDeduccionIvmTrabajador
+     */
     public static void setDeduccionIvmTrabajador(double aDeduccionIvmTrabajador) {
         deduccionIvmTrabajador = aDeduccionIvmTrabajador;
     }
-/**
- * Funcion get de deduccionCajaTrabajador
- * @return deduccionCajaTrabajador
- */
+
+    /**
+     * Funcion get de deduccionCajaTrabajador
+     *
+     * @return deduccionCajaTrabajador
+     */
     public static double getDeduccionCajaTrabajador() {
         return deduccionCajaTrabajador;
     }
-/**
- * Funcion set de deduccionCajaTrabajador
- * @param aDeduccionCajaTrabajador 
- */
+
+    /**
+     * Funcion set de deduccionCajaTrabajador
+     *
+     * @param aDeduccionCajaTrabajador
+     */
     public static void setDeduccionCajaTrabajador(double aDeduccionCajaTrabajador) {
         deduccionCajaTrabajador = aDeduccionCajaTrabajador;
     }
-/**
- * Funcion get de deduccionAportePopularTrabajador
- * @return deduccionAportePopularTrabajador
- */
+
+    /**
+     * Funcion get de deduccionAportePopularTrabajador
+     *
+     * @return deduccionAportePopularTrabajador
+     */
     public static double getDeduccionAportePopularTrabajador() {
         return deduccionAportePopularTrabajador;
     }
-/**
- * Funcion set de deduccionAportePopularTrabajador
- * @param aDeduccionAportePopularTrabajador 
- */
+
+    /**
+     * Funcion set de deduccionAportePopularTrabajador
+     *
+     * @param aDeduccionAportePopularTrabajador
+     */
     public static void setDeduccionAportePopularTrabajador(double aDeduccionAportePopularTrabajador) {
         deduccionAportePopularTrabajador = aDeduccionAportePopularTrabajador;
     }
-/**
- * Funcion get de lptTrabajador
- * @return lptTrabajador
- */
+
+    /**
+     * Funcion get de lptTrabajador
+     *
+     * @return lptTrabajador
+     */
     public static double getLptTrabajador() {
         return lptTrabajador;
     }
-/**
- * Funcion set de lptTrabajador
- * @param aLptTrabajador 
- */
+
+    /**
+     * Funcion set de lptTrabajador
+     *
+     * @param aLptTrabajador
+     */
     public static void setLptTrabajador(double aLptTrabajador) {
         lptTrabajador = aLptTrabajador;
+    }
+/**
+ * Metodo get de totalSem
+ * @return totalSem
+ */
+    public static double getTotalSem() {
+        return totalSem;
+    }
+/**
+ * Metodo set de TotalSem
+ * @param aTotalSem 
+ */
+    public static void setTotalSem(double aTotalSem) {
+        totalSem = aTotalSem;
+    }
+/**
+ * Metodo get de totalIvm
+ * @return totalIvm
+ */
+    public static double getTotalIvm() {
+        return totalIvm;
+    }
+/**
+ * Metodo set de totalIvm
+ * @param aTotalIvm 
+ */
+    public static void setTotalIvm(double aTotalIvm) {
+        totalIvm = aTotalIvm;
+    }
+/**
+ * Metodo get de totalCcss
+ * @return totalCcss
+ */
+    public static double getTotalCcss() {
+        return totalCcss;
+    }
+/**
+ * Metodo set de totalCcss
+ * @param aTotalCcss 
+ */
+    public static void setTotalCcss(double aTotalCcss) {
+        totalCcss = aTotalCcss;
+    }
+/**
+ * Metodo get de totalLpt
+ * @return totalLpt
+ */
+    public static double getTotalLpt() {
+        return totalLpt;
+    }
+/**
+ * Metodo set de totalLpt
+ * @param aTotalLpt 
+ */
+    public static void setTotalLpt(double aTotalLpt) {
+        totalLpt = aTotalLpt;
+    }
+/**
+ * Metodo get de aporteTotal.
+ * @return aporteTotal
+ */
+    public static double getAporteTotal() {
+        return aporteTotal;
+    }
+/**
+ * Metodo set de aporteTotal
+ * @param aAporteTotal 
+ */
+    public static void setAporteTotal(double aAporteTotal) {
+        aporteTotal = aAporteTotal;
     }
 
 }
