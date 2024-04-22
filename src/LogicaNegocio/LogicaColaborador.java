@@ -1045,7 +1045,7 @@ public class LogicaColaborador {
         return totalLpt;
     }
 /**
- * Metodo set de totalLpt
+ * Metodo set de totalLpt.
  * @param aTotalLpt 
  */
     public static void setTotalLpt(double aTotalLpt) {

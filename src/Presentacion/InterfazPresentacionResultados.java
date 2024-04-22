@@ -192,7 +192,7 @@ public class InterfazPresentacionResultados extends javax.swing.JFrame {
       LogicaEnviarCorreo objLogicaEnviarCorreo = new LogicaEnviarCorreo();
       LogicaPDF objLogicaPDF = new LogicaPDF();
       
-      objLogicaPDF..
+      
       
       
 
