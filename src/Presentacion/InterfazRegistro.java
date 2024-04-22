@@ -44,7 +44,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
         lblNombre = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         btnSingup = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        botonAtras = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
@@ -95,14 +95,19 @@ public class InterfazRegistro extends javax.swing.JFrame {
         });
         jplRegister.add(btnSingup, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 120, 30));
 
-        jButton1.setText("¿Ya tienes una cuenta?");
-        jButton1.setBorder(null);
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        botonAtras.setText("¿Ya tienes una cuenta?");
+        botonAtras.setBorder(null);
+        botonAtras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                botonAtrasMouseClicked(evt);
             }
         });
-        jplRegister.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 470, -1, -1));
+        botonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAtrasActionPerformed(evt);
+            }
+        });
+        jplRegister.add(botonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 470, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame2.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -133,13 +138,10 @@ public class InterfazRegistro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        InterfazInicioSesion newframe = new InterfazInicioSesion();
-
-        newframe.setVisible(true);
-
+    private void botonAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAtrasMouseClicked
+       
         
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_botonAtrasMouseClicked
 
     private void btnSingupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSingupActionPerformed
       
@@ -179,6 +181,8 @@ public class InterfazRegistro extends javax.swing.JFrame {
 
         newframe.setVisible(true);
         
+        this.dispose();
+        
 
       
     }//GEN-LAST:event_btnSingupActionPerformed
@@ -194,6 +198,15 @@ public class InterfazRegistro extends javax.swing.JFrame {
 
         this.dispose();
     }//GEN-LAST:event_btnSingupMouseClicked
+
+    private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
+        
+        InterfazInicioSesion newframe = new InterfazInicioSesion();
+
+        newframe.setVisible(true);
+
+        this.dispose();
+    }//GEN-LAST:event_botonAtrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,9 +244,9 @@ public class InterfazRegistro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAtras;
     private javax.swing.JButton btnSingup;
     private javax.swing.JLabel imgFont;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;

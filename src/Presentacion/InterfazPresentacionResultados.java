@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Presentacion;
+import LogicaNegocio.LogicaColaborador;
 import LogicaNegocio.LogicaEnviarCorreo;
 import LogicaNegocio.LogicaPDF;
 
@@ -49,6 +50,10 @@ public class InterfazPresentacionResultados extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         botonCargarResultados = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtSalarioBruto = new javax.swing.JTextField();
+        txtSalarioNeto = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,12 +61,13 @@ public class InterfazPresentacionResultados extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Enviar correo");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 120, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 220, -1, -1));
 
         txtSEM.setEditable(false);
         txtSEM.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +111,7 @@ public class InterfazPresentacionResultados extends javax.swing.JFrame {
         jPanel1.add(txtINA, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 300, 90, 30));
 
         txtTotalTrabajador.setEditable(false);
-        jPanel1.add(txtTotalTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(604, 672, 80, 30));
+        jPanel1.add(txtTotalTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(604, 672, 90, 30));
 
         txtAportePatronoBancoPopular.setEditable(false);
         jPanel1.add(txtAportePatronoBancoPopular, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 410, 90, 30));
@@ -114,10 +120,10 @@ public class InterfazPresentacionResultados extends javax.swing.JFrame {
         jPanel1.add(txtFCL, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 440, 90, 30));
 
         txtTotalPatrono.setEditable(false);
-        jPanel1.add(txtTotalPatrono, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 672, 80, 30));
+        jPanel1.add(txtTotalPatrono, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 672, 90, 30));
 
         txtTotal.setEditable(false);
-        jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 670, 80, 30));
+        jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 670, 90, 30));
 
         txtLPT.setEditable(false);
         jPanel1.add(txtLPT, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 560, 90, 30));
@@ -137,7 +143,35 @@ public class InterfazPresentacionResultados extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, -1));
 
         botonCargarResultados.setText("Cargar Resultados");
-        jPanel1.add(botonCargarResultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 60, -1, -1));
+        botonCargarResultados.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botonCargarResultados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCargarResultadosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonCargarResultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 170, -1, -1));
+
+        jLabel3.setBackground(new java.awt.Color(51, 255, 204));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel3.setText("Salario Bruto");
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 20, -1, -1));
+
+        jLabel4.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel4.setText("Salario Neto");
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 90, 70, -1));
+
+        txtSalarioBruto.setEditable(false);
+        txtSalarioBruto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSalarioBrutoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtSalarioBruto, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 50, 100, 30));
+
+        txtSalarioNeto.setEditable(false);
+        jPanel1.add(txtSalarioNeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 120, 100, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,9 +188,11 @@ public class InterfazPresentacionResultados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       
       LogicaEnviarCorreo objLogicaEnviarCorreo = new LogicaEnviarCorreo();
       LogicaPDF objLogicaPDF = new LogicaPDF();
+      
+      objLogicaPDF..
       
       
 
@@ -177,6 +213,25 @@ public class InterfazPresentacionResultados extends javax.swing.JFrame {
     private void txtCuotaPatronalBancoPopularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCuotaPatronalBancoPopularActionPerformed
      
     }//GEN-LAST:event_txtCuotaPatronalBancoPopularActionPerformed
+
+    private void botonCargarResultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarResultadosActionPerformed
+       
+        
+       LogicaColaborador objLogicaColador = new LogicaColaborador();
+       
+      
+      txtSalarioBruto.setText(String.valueOf(LogicaColaborador.getSalarioSinDeducciones()));
+        
+        
+        
+    
+        
+        
+    }//GEN-LAST:event_botonCargarResultadosActionPerformed
+
+    private void txtSalarioBrutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioBrutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalarioBrutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,6 +277,8 @@ public class InterfazPresentacionResultados extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtAportePatronoBancoPopular;
     private javax.swing.JTextField txtAporteTrabajadorBancoPopular;
@@ -235,6 +292,8 @@ public class InterfazPresentacionResultados extends javax.swing.JFrame {
     private javax.swing.JTextField txtIVM;
     private javax.swing.JTextField txtLPT;
     private javax.swing.JTextField txtSEM;
+    private javax.swing.JTextField txtSalarioBruto;
+    private javax.swing.JTextField txtSalarioNeto;
     private javax.swing.JTextField txtTotal;
     private javax.swing.JTextField txtTotalCCSS;
     private javax.swing.JTextField txtTotalPatrono;

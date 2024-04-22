@@ -209,6 +209,8 @@ public class InterfazInicioSesion extends javax.swing.JFrame {
         objInterfazRegistro.setVisible(true);
         objInterfazRegistro.setResizable(false);
         objInterfazRegistro.setLocationRelativeTo(null);
+        this.dispose();
+        
 
 
     }//GEN-LAST:event_btnLoginActionPerformed

@@ -117,39 +117,47 @@ public class InterfazTomaDatos extends javax.swing.JFrame {
         objColaborador.setExtrasCorrientes(Double.parseDouble(txtHorasExtrasSencillas.getText()));
         objColaborador.setExtrasDobles(Double.parseDouble(txtExtrasHorasDobles.getText()));
 
-        LogicaColaborador.calculoHorasExtrasNormales(objColaborador);
-        LogicaColaborador.calculoHorasExtrasDobles(objColaborador);
-        LogicaColaborador.calculoSalarioBase(objColaborador);
-        LogicaColaborador.salarioSinDeducciones();
-        LogicaColaborador.impuestosSobreRenta();
-        LogicaColaborador.semPatrono();
-        LogicaColaborador.ivmPatrono();
-        LogicaColaborador.cajaPatrono();
-        LogicaColaborador.cuotaPopularPatrono();
-        LogicaColaborador.asignacionesFamiliares();
-        LogicaColaborador.imasDeducciones();
-        LogicaColaborador.inaDeducciones();
-        LogicaColaborador.totalOtrasInstituciones();
-        LogicaColaborador.aportePopularPatrono();
-        LogicaColaborador.fondoCapitalizacion();
-        LogicaColaborador.fondoPensiones();
-        LogicaColaborador.deduccionesInsPatrono();
-        LogicaColaborador.totalLptPatrono();
-        LogicaColaborador.totalPatrono();
-        LogicaColaborador.semTrabajador();
-        LogicaColaborador.ivmTrabajador();
-        LogicaColaborador.cajaTrabajador();
-        LogicaColaborador.aportePopularTrabajador();
-        LogicaColaborador.totalLptTrabajador();
-        LogicaColaborador.calculoSalarioNeto();
-        LogicaColaborador.calculoTotalIvm();
-        LogicaColaborador.calculoTotalSem();
-        LogicaColaborador.calculoTotalCaja();
-        LogicaColaborador.calculoTotalLpt();
-        LogicaColaborador.deduccionesCcssColaborador();
-        LogicaColaborador.deduccionesCcss();
-        LogicaColaborador.calculoSalarioNeto();
-
+        objLogicaColaborador.calculoHorasExtrasNormales(objColaborador);
+        objLogicaColaborador.calculoHorasExtrasDobles(objColaborador);
+        objLogicaColaborador.calculoSalarioBase(objColaborador);
+        objLogicaColaborador.salarioSinDeducciones();
+        objLogicaColaborador.impuestosSobreRenta();
+        objLogicaColaborador.semPatrono();
+        objLogicaColaborador.ivmPatrono();
+        objLogicaColaborador.cajaPatrono();
+        objLogicaColaborador.cuotaPopularPatrono();
+        objLogicaColaborador.asignacionesFamiliares();
+        objLogicaColaborador.imasDeducciones();
+        objLogicaColaborador.inaDeducciones();
+        objLogicaColaborador.totalOtrasInstituciones();
+        objLogicaColaborador.aportePopularPatrono();
+        objLogicaColaborador.fondoCapitalizacion();
+        objLogicaColaborador.fondoPensiones();
+        objLogicaColaborador.deduccionesInsPatrono();
+        objLogicaColaborador.totalLptPatrono();
+        objLogicaColaborador.totalPatrono();
+        objLogicaColaborador.semTrabajador();
+        objLogicaColaborador.ivmTrabajador();
+        objLogicaColaborador.cajaTrabajador();
+        objLogicaColaborador.aportePopularTrabajador();
+        objLogicaColaborador.totalLptTrabajador();
+        objLogicaColaborador.calculoSalarioNeto();
+        objLogicaColaborador.calculoTotalIvm();
+        objLogicaColaborador.calculoTotalSem();
+        objLogicaColaborador.calculoTotalCaja();
+        objLogicaColaborador.calculoTotalLpt();
+        objLogicaColaborador.deduccionesCcssColaborador();
+        objLogicaColaborador.deduccionesCcss();
+        objLogicaColaborador.calculoSalarioNeto();
+         
+        
+        
+        
+        InterfazPresentacionResultados objInterfazPresentacionResultados = new InterfazPresentacionResultados();
+        objInterfazPresentacionResultados.setVisible(true);
+        objInterfazPresentacionResultados.setResizable(false);
+        objInterfazPresentacionResultados.setLocationRelativeTo(null);
+        this.dispose();
 
     }//GEN-LAST:event_botonCalcularSalarioActionPerformed
 
