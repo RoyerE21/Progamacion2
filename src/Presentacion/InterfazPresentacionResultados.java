@@ -4,6 +4,7 @@
  */
 package Presentacion;
 import LogicaNegocio.LogicaEnviarCorreo;
+import LogicaNegocio.LogicaPDF;
 
 /**
  *
@@ -29,8 +30,25 @@ public class InterfazPresentacionResultados extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        txtSEM = new javax.swing.JTextField();
+        txtIVM = new javax.swing.JTextField();
+        txtTotalCCSS = new javax.swing.JTextField();
+        txtCuotaPatronalBancoPopular = new javax.swing.JTextField();
+        txtAsignacionFamiliares = new javax.swing.JTextField();
+        txtIMAS = new javax.swing.JTextField();
+        txtINA = new javax.swing.JTextField();
+        txtTotalTrabajador = new javax.swing.JTextField();
+        txtAportePatronoBancoPopular = new javax.swing.JTextField();
+        txtFCL = new javax.swing.JTextField();
+        txtTotalPatrono = new javax.swing.JTextField();
+        txtTotal = new javax.swing.JTextField();
+        txtLPT = new javax.swing.JTextField();
+        txtAporteTrabajadorBancoPopular = new javax.swing.JTextField();
+        txtFondoPensionComplemetaria = new javax.swing.JTextField();
+        txtINS = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        botonCargarResultados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,15 +61,83 @@ public class InterfazPresentacionResultados extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 530, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 120, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/asdf.jpg"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 800, 760));
+        txtSEM.setEditable(false);
+        txtSEM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSEMActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtSEM, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 62, 90, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame2.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 940, -1));
+        txtIVM.setEditable(false);
+        txtIVM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIVMActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtIVM, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 92, 90, 30));
+
+        txtTotalCCSS.setEditable(false);
+        txtTotalCCSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTotalCCSSActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtTotalCCSS, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 120, 90, 30));
+
+        txtCuotaPatronalBancoPopular.setEditable(false);
+        txtCuotaPatronalBancoPopular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCuotaPatronalBancoPopularActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtCuotaPatronalBancoPopular, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 210, 90, 30));
+
+        txtAsignacionFamiliares.setEditable(false);
+        jPanel1.add(txtAsignacionFamiliares, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 240, 90, 30));
+
+        txtIMAS.setEditable(false);
+        jPanel1.add(txtIMAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 270, 90, 30));
+
+        txtINA.setEditable(false);
+        jPanel1.add(txtINA, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 300, 90, 30));
+
+        txtTotalTrabajador.setEditable(false);
+        jPanel1.add(txtTotalTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(604, 672, 80, 30));
+
+        txtAportePatronoBancoPopular.setEditable(false);
+        jPanel1.add(txtAportePatronoBancoPopular, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 410, 90, 30));
+
+        txtFCL.setEditable(false);
+        jPanel1.add(txtFCL, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 440, 90, 30));
+
+        txtTotalPatrono.setEditable(false);
+        jPanel1.add(txtTotalPatrono, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 672, 80, 30));
+
+        txtTotal.setEditable(false);
+        jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 670, 80, 30));
+
+        txtLPT.setEditable(false);
+        jPanel1.add(txtLPT, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 560, 90, 30));
+
+        txtAporteTrabajadorBancoPopular.setEditable(false);
+        jPanel1.add(txtAporteTrabajadorBancoPopular, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 500, 90, 30));
+
+        txtFondoPensionComplemetaria.setEditable(false);
+        jPanel1.add(txtFondoPensionComplemetaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 470, 90, 30));
+
+        txtINS.setEditable(false);
+        jPanel1.add(txtINS, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 530, 90, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 560, 90, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/CCSS1.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, -1));
+
+        botonCargarResultados.setText("Cargar Resultados");
+        jPanel1.add(botonCargarResultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,10 +155,28 @@ public class InterfazPresentacionResultados extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-      createEmail();
-      sendMail();
+      LogicaEnviarCorreo objLogicaEnviarCorreo = new LogicaEnviarCorreo();
+      LogicaPDF objLogicaPDF = new LogicaPDF();
+      
+      
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtSEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSEMActionPerformed
+      
+    }//GEN-LAST:event_txtSEMActionPerformed
+
+    private void txtIVMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIVMActionPerformed
+      
+    }//GEN-LAST:event_txtIVMActionPerformed
+
+    private void txtTotalCCSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalCCSSActionPerformed
+        
+    }//GEN-LAST:event_txtTotalCCSSActionPerformed
+
+    private void txtCuotaPatronalBancoPopularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCuotaPatronalBancoPopularActionPerformed
+     
+    }//GEN-LAST:event_txtCuotaPatronalBancoPopularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -107,22 +211,37 @@ public class InterfazPresentacionResultados extends javax.swing.JFrame {
                 new InterfazPresentacionResultados().setVisible(true);
             }
         });
+        
+        
+       
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonCargarResultados;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtAportePatronoBancoPopular;
+    private javax.swing.JTextField txtAporteTrabajadorBancoPopular;
+    private javax.swing.JTextField txtAsignacionFamiliares;
+    private javax.swing.JTextField txtCuotaPatronalBancoPopular;
+    private javax.swing.JTextField txtFCL;
+    private javax.swing.JTextField txtFondoPensionComplemetaria;
+    private javax.swing.JTextField txtIMAS;
+    private javax.swing.JTextField txtINA;
+    private javax.swing.JTextField txtINS;
+    private javax.swing.JTextField txtIVM;
+    private javax.swing.JTextField txtLPT;
+    private javax.swing.JTextField txtSEM;
+    private javax.swing.JTextField txtTotal;
+    private javax.swing.JTextField txtTotalCCSS;
+    private javax.swing.JTextField txtTotalPatrono;
+    private javax.swing.JTextField txtTotalTrabajador;
     // End of variables declaration//GEN-END:variables
 
-    private void createEmail() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void sendMail() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+  
 
   
 }

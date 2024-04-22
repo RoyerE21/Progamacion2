@@ -32,15 +32,15 @@ public class InterfazTomaDatos extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        botonCalcularSalario = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txtCantidadHorasOridinarias = new javax.swing.JTextField();
+        txtHorasExtrasSencillas = new javax.swing.JTextField();
+        txtSalarioPorHora = new javax.swing.JTextField();
+        txtExtrasHorasDobles = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -53,13 +53,13 @@ public class InterfazTomaDatos extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Calcular");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonCalcularSalario.setText("Calcular");
+        botonCalcularSalario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonCalcularSalarioActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, -1, -1));
+        jPanel2.add(botonCalcularSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, -1, -1));
 
         jLabel2.setText("Cantidad de horas ordinarias");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
@@ -72,10 +72,16 @@ public class InterfazTomaDatos extends javax.swing.JFrame {
 
         jLabel5.setText("Salario por hora");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 100, -1));
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, -1));
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 100, -1));
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 100, -1));
+
+        txtCantidadHorasOridinarias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCantidadHorasOridinariasActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtCantidadHorasOridinarias, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 100, -1));
+        jPanel2.add(txtHorasExtrasSencillas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 90, -1));
+        jPanel2.add(txtSalarioPorHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 100, -1));
+        jPanel2.add(txtExtrasHorasDobles, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 100, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Ingrese los datos.png"))); // NOI18N
         jLabel6.setText("jLabel6");
@@ -101,33 +107,60 @@ public class InterfazTomaDatos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonCalcularSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularSalarioActionPerformed
+
+        LogicaColaborador objLogicaColaborador = new LogicaColaborador();
+        Colaborador objColaborador = new Colaborador();
+
+        objColaborador.setSalarioHora(Double.parseDouble(txtSalarioPorHora.getText()));
+        objColaborador.setHorasTrabajadas(Double.parseDouble(txtCantidadHorasOridinarias.getText()));
+        objColaborador.setExtrasCorrientes(Double.parseDouble(txtHorasExtrasSencillas.getText()));
+        objColaborador.setExtrasDobles(Double.parseDouble(txtExtrasHorasDobles.getText()));
+
+        LogicaColaborador.calculoHorasExtrasNormales(objColaborador);
+        LogicaColaborador.calculoHorasExtrasDobles(objColaborador);
+        LogicaColaborador.calculoSalarioBase(objColaborador);
+        LogicaColaborador.salarioSinDeducciones();
+        LogicaColaborador.impuestosSobreRenta();
+        LogicaColaborador.semPatrono();
+        LogicaColaborador.ivmPatrono();
+        LogicaColaborador.cajaPatrono();
+        LogicaColaborador.cuotaPopularPatrono();
+        LogicaColaborador.asignacionesFamiliares();
+        LogicaColaborador.imasDeducciones();
+        LogicaColaborador.inaDeducciones();
+        LogicaColaborador.totalOtrasInstituciones();
+        LogicaColaborador.aportePopularPatrono();
+        LogicaColaborador.fondoCapitalizacion();
+        LogicaColaborador.fondoPensiones();
+        LogicaColaborador.deduccionesInsPatrono();
+        LogicaColaborador.totalLptPatrono();
+        LogicaColaborador.totalPatrono();
+        LogicaColaborador.semTrabajador();
+        LogicaColaborador.ivmTrabajador();
+        LogicaColaborador.cajaTrabajador();
+        LogicaColaborador.aportePopularTrabajador();
+        LogicaColaborador.totalLptTrabajador();
+        LogicaColaborador.calculoSalarioNeto();
+        LogicaColaborador.calculoTotalIvm();
+        LogicaColaborador.calculoTotalSem();
+        LogicaColaborador.calculoTotalCaja();
+        LogicaColaborador.calculoTotalLpt();
+        LogicaColaborador.deduccionesCcssColaborador();
+        LogicaColaborador.deduccionesCcss();
+        LogicaColaborador.calculoSalarioNeto();
+
+
+    }//GEN-LAST:event_botonCalcularSalarioActionPerformed
+
+    private void txtCantidadHorasOridinariasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadHorasOridinariasActionPerformed
         // TODO add your handling code here:
-        // Llamar al método impuestosSobreRenta() cuando se haga clic en el botón
-        double impuestos = LogicaNegocio.LogicaColaborador.impuestosSobreRenta();
+    }//GEN-LAST:event_txtCantidadHorasOridinariasActionPerformed
 
-       
-        Colaborador colaborador = new Colaborador();
-
-       
-        double horasExtrasNormales = LogicaNegocio.LogicaColaborador.calculoHorasExtrasDobles(colaborador);
-
-        
-        double horasExtrasDobles = LogicaNegocio.LogicaColaborador.calculoHorasExtrasDobles(colaborador);
-
-       
-        double salarioBase = LogicaNegocio.LogicaColaborador.calculoSalarioBase(colaborador);
-
-        double salarioSinDeducciones = LogicaNegocio.LogicaColaborador.salarioSinDeducciones();
-    
-
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-/**
- * @param args the command line arguments
- */
-public static void main(String args[]) {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -139,27 +172,23 @@ public static void main(String args[]) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
 
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfazTomaDatos.class  
+            java.util.logging.Logger.getLogger(InterfazTomaDatos.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(InterfazTomaDatos.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfazTomaDatos.class  
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(InterfazTomaDatos.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfazTomaDatos.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfazTomaDatos.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(InterfazTomaDatos.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -172,7 +201,7 @@ public static void main(String args[]) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botonCalcularSalario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -181,9 +210,9 @@ public static void main(String args[]) {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txtCantidadHorasOridinarias;
+    private javax.swing.JTextField txtExtrasHorasDobles;
+    private javax.swing.JTextField txtHorasExtrasSencillas;
+    private javax.swing.JTextField txtSalarioPorHora;
     // End of variables declaration//GEN-END:variables
 }
