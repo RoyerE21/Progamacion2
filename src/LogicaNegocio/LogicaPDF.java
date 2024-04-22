@@ -10,6 +10,7 @@ import com.itextpdf.text.Paragraph;
 import java.io.FileOutputStream;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
+import LogicaNegocio.LogicaColaborador;
 
 /**
  *
@@ -17,10 +18,13 @@ import javax.swing.table.DefaultTableCellRenderer;
  */
 public class LogicaPDF {
 
+   // LogicaNegocio.LogicaColaborador objLogicaColaborador = new LogicaNegocio.LogicaColaborador();
+
     public static void main(String[] args) {
         Document document = new Document();
         String nombreArchivo = "PDFSalario.pdf";
         try {
+             LogicaNegocio.LogicaColaborador objLogicaColaborador = new LogicaNegocio.LogicaColaborador();
             PdfWriter.getInstance(document, new FileOutputStream("PDFSalario1.pdf"));
             document.open();
 
@@ -48,18 +52,18 @@ public class LogicaPDF {
             tabla.addCell("SEM");
             tabla.addCell("9.25%");
             tabla.addCell("5.50%");
-            tabla.addCell("María");
+            tabla.addCell("CRC " + LogicaNegocio.LogicaColaborador.getTotalSem());
 
             tabla.addCell("IVM");
             tabla.addCell("5.42%");
             tabla.addCell("4.17%");
-            tabla.addCell("María");
+            tabla.addCell("CRC " + LogicaNegocio.LogicaColaborador.getTotalIvm());
 
             //
             tabla.addCell("Total CCSS");
             tabla.addCell("14.67%");
             tabla.addCell("9.67%");
-            tabla.addCell("María");
+            tabla.addCell("CRC "+ LogicaNegocio.LogicaColaborador.getTotalCcss());
 
             document.add(tabla);
             Paragraph espacio1 = new Paragraph("\n");
@@ -75,28 +79,28 @@ public class LogicaPDF {
             tabla1.addCell("Cuota Banco Popular");
             tabla1.addCell("0.25%");
             tabla1.addCell("            -");
-            tabla1.addCell("María");
+            tabla1.addCell("CRC "  + LogicaNegocio.LogicaColaborador.getDeduccionCuotaPopularPatrono());
 
             //
             tabla1.addCell("Asignaciones Familiares");
             tabla1.addCell("5.00%");
             tabla1.addCell("            -");
-            tabla1.addCell("María");
+            tabla1.addCell("CRC " + LogicaNegocio.LogicaColaborador.getDeduccionAsignacionesFamiliares());
 
             tabla1.addCell("IMAS");
             tabla1.addCell("0.50%");
             tabla1.addCell("            -");
-            tabla1.addCell("María");
+            tabla1.addCell("CRC " + LogicaNegocio.LogicaColaborador.getDeduccionImas());
 
             tabla1.addCell("INA");
             tabla1.addCell("1.50%");
             tabla1.addCell("            -");
-            tabla1.addCell("María");
+            tabla1.addCell("CRC " +LogicaNegocio.LogicaColaborador.getDeduccionIna());
 
             tabla1.addCell("Total Otras Instituciones");
             tabla1.addCell("7.25%");
             tabla1.addCell("            -");
-            tabla1.addCell("María");
+            tabla1.addCell("CRC " + LogicaNegocio.LogicaColaborador.getOtrasInstituciones());
 
             document.add(tabla1);
             Paragraph espacio3 = new Paragraph("\n");
@@ -110,34 +114,34 @@ public class LogicaPDF {
 
             tabla2.addCell("Aporte Patrono Banco Popular");
             tabla2.addCell("0.25%");
-            tabla1.addCell("            -");
-            tabla2.addCell("María");
+            tabla2.addCell("            -");
+            tabla2.addCell("CRC " + LogicaNegocio.LogicaColaborador.getDeduccionAportePopularPatrono());
 
             tabla2.addCell("Fondo de Capitalización laboral");
             tabla2.addCell("1.50");
-            tabla1.addCell("            -");
-            tabla2.addCell("María");
+            tabla2.addCell("            -");
+            tabla2.addCell("CRC " + LogicaNegocio.LogicaColaborador.getTotalFondoCapitalizacion());
 
             tabla2.addCell("Fondo de Pensiones Complementarias");
             tabla2.addCell("2.00%");
-            tabla1.addCell("            -");
-            tabla2.addCell("María");
+            tabla2.addCell("            -");
+            tabla2.addCell("CRC " + LogicaNegocio.LogicaColaborador.getTotalFondoPensiones());
 
             tabla2.addCell("Aporte Trabajador Banco Popular");
-            tabla1.addCell("            -");
+            tabla2.addCell("            -");
             tabla2.addCell("1.00%");
-            tabla2.addCell("María");
+            tabla2.addCell("CRC " + LogicaNegocio.LogicaColaborador.getDeduccionAportePopularTrabajador());
 
             tabla2.addCell("INS");
             tabla2.addCell("1.00%");
-            tabla1.addCell("            -");
-            tabla2.addCell("María");
+            tabla2.addCell("            -");
+            tabla2.addCell("CRC " +LogicaNegocio.LogicaColaborador.getTotalIns());
 
             tabla2.addCell("TOTAL LPT");
             tabla2.addCell("4.75%");
             tabla2.addCell("1.00%");
-            tabla2.addCell("María");
-            document.add(tabla1);
+            tabla2.addCell("CRC " + LogicaNegocio.LogicaColaborador.getTotalLpt());
+            document.add(tabla2);
             Paragraph espacio5 = new Paragraph("\n");
             document.add(espacio5);
             Paragraph p3 = new Paragraph("TOTAL");
@@ -151,14 +155,37 @@ public class LogicaPDF {
             tabla3.addCell("PORCENTAJES TOTALES");
             tabla3.addCell("26.67%");
             tabla3.addCell("10.67%");
-            tabla3.addCell("María");
+            tabla3.addCell("37.34%");
 
             tabla3.addCell("MONTOS TOTALES");
-            tabla3.addCell("25");
-            tabla3.addCell("30");
-            tabla3.addCell("María");
+            tabla3.addCell("CRC " + LogicaNegocio.LogicaColaborador.getAporteTotalPatrono());
+            tabla3.addCell("CRC " + LogicaNegocio.LogicaColaborador.getDeduccionesCcssColaborador());
+            tabla3.addCell("CRC " + LogicaNegocio.LogicaColaborador.getAporteTotal());
             document.add(tabla3); // Agregamos la tabla al documento
 
+            Paragraph espacio7 = new Paragraph("\n" + "Detalles sobre el Pago");
+            espacio7.setAlignment(Element.ALIGN_CENTER);
+            document.add(espacio7);
+
+            Paragraph espacio8 = new Paragraph("\n");
+            document.add(espacio8);
+
+            PdfPTable tabla4 = new PdfPTable(2);
+            tabla4.addCell("Deducción a trabajador");
+            tabla4.addCell("Monto correspondiente");
+
+            tabla4.addCell("CSS");
+            tabla4.addCell("CRC " + LogicaNegocio.LogicaColaborador.getDeduccionesCcssColaborador());
+
+            tabla4.addCell("Impuesto a la renta");
+            tabla4.addCell("CRC " + LogicaNegocio.LogicaColaborador.getImpuestosSobreRenta());
+            document.add(tabla4);
+
+            Paragraph p4 = new Paragraph("\n" + "Su salario bruto corresponde a: CRC " + LogicaNegocio.LogicaColaborador.getSalarioSinDeducciones());
+            document.add(p4);
+
+            Paragraph p5 = new Paragraph("Su salario neto corresponde a: CRC " + LogicaNegocio.LogicaColaborador.getSalarioNeto());
+            document.add(p5);
             document.close();
             System.out.println("Documento con imagen creado exitosamente.");
         } catch (Exception e) {
