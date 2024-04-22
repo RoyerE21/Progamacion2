@@ -18,7 +18,7 @@ import LogicaNegocio.LogicaColaborador;
  */
 public class LogicaPDF {
 
-   // LogicaNegocio.LogicaColaborador objLogicaColaborador = new LogicaNegocio.LogicaColaborador();
+   // LogicaNegocio.LogicaColaborador objLogicaColaborador = new LogicaNegocio.LogicaColaborador().;
  
     public static void CrearPdf() {
 
