@@ -1,5 +1,6 @@
 package LogicaNegocio;
 
+import Entidades.Usuario;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -11,7 +12,7 @@ import java.io.FileOutputStream;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import LogicaNegocio.LogicaColaborador;
-
+import java.time.LocalDate;
 /**
  *
  * @author regr9
@@ -19,14 +20,17 @@ import LogicaNegocio.LogicaColaborador;
 public class LogicaPDF {
 
    // LogicaNegocio.LogicaColaborador objLogicaColaborador = new LogicaNegocio.LogicaColaborador().;
- 
+ private static String nombreArchivo;
     public static void CrearPdf() {
-
+        Usuario objUsuario = new Usuario();
+        LogicaEnviarCorreo  objLogicaEnviarCorreo = new LogicaEnviarCorreo();
         Document document = new Document();
-        String nombreArchivo = "PDFSalario.pdf";
+        LocalDate fechaActual = LocalDate.now();
+         nombreArchivo =  objLogicaEnviarCorreo.getCorreoEnvioPDF()+ fechaActual+ ".pdf";
+        // objLogicaEnviarCorreo.setCorreoEnvioPDF
         try {
              LogicaNegocio.LogicaColaborador objLogicaColaborador = new LogicaNegocio.LogicaColaborador();
-            PdfWriter.getInstance(document, new FileOutputStream("PDFSalario1.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream(nombreArchivo));
             document.open();
  
             // Agrega un párrafo con el texto "Calculo de salario" centrado
@@ -193,5 +197,13 @@ public class LogicaPDF {
             System.out.println("Error: " + e.getMessage());
         }
 
+    }
+
+    public static String getNombreArchivo() {
+        return nombreArchivo;
+    }
+
+    public static void setNombreArchivo(String aNombreArchivo) {
+        nombreArchivo = aNombreArchivo;
     }
     }
